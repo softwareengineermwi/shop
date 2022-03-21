@@ -1,13 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1 class="intro">Let's Make it Happen!</h1>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <title>Thee Crafty Soul | Shop</title>
+<script defer src="main.js"></script></head>
+
+<body class="position-relative">
+  <header class="container margin-y-md flex justify-center position-fixed top-0 width-100%">
+    <div class="filter-nav filter-nav--v2 filter-nav--expanded js-filter-nav">
+      <button class="reset btn btn--subtle is-hidden js-filter-nav__control" aria-label="Select a filter option"
+        aria-controls="filter-nav">
+        <span class="js-filter-nav__placeholder" aria-hidden="true">All Products</span>
+        <svg class="icon icon--xxs margin-left-xxs" aria-hidden="true" viewBox="0 0 12 12">
+          <polyline points="1 4 6 9 11 4" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2" />
+        </svg>
+      </button>
+
+      <div class="filter-nav__wrapper js-filter-nav__wrapper" id="filter-nav">
+        <nav class="filter-nav__nav justify-center js-filter-nav__nav">
+          <ul class="filter-nav__list js-filter-nav__list" aria-controls="product-gallery-v2" id="foo">
+            <li class="filter-nav__item">
+              <button id="all_products" class="reset filter-nav__btn js-filter-nav__btn js-tab-focus"
+                aria-current="true" data-filter="*">All Products</button>
+            </li>
+
+            <li class="filter-nav__marker js-filter-nav__marker" aria-hidden="true"></li>
+          </ul>
+
+          <button class="reset filter-nav__close-btn is-hidden js-filter-nav__close-btn js-tab-focus"
+            aria-label="Close navigation">
+            <svg class="icon icon--xs" viewBox="0 0 16 16">
+              <title>Close drawer panel</title>
+              <g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                stroke-miterlimit="10">
+                <line x1="13.5" y1="2.5" x2="2.5" y2="13.5"></line>
+                <line x1="2.5" y1="2.5" x2="13.5" y2="13.5"></line>
+              </g>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-width-md margin-x-auto">
+    <section class="products-gallery padding-y-xxl">
+      <div class="container max-width-adaptive-lg">
+        <div class="margin-bottom-lg">
+          <div class="grid items-center">
+            <div class="col-12 col-6@md">
+              <h1 id="highlight">All products</h1>
+            </div>
+            <div class="col-12 col-6@md flex justify-end@md">
+              <button class="btn btn--subtle btn--sm" role="text"
+                onclick="document.getElementById('all_products').click()">View all <i
+                  class="sr-only">products</i></button>
+            </div>
+          </div>
+        </div>
+        <div class="grid gap-md" id="shop"></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="position-fixed bottom-0 width-100% bg-white">
+    <div class="container max-width-md">
+      <div class="grid items-center padding-y-sm">
+        <div class="col-6">
+          <span class="text-xxl">$<span class="text-xl" id="total">0</span></span>
+        </div>
+        <div class="col-6">
+          <div class="flex justify-end">
+            <a href="../cart/" class="btn btn--primary">
+              <span class="material-icons">arrow_forward</span>
+              <span id="cart_counter" class="counter counter--light margin-left-xxs">12</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn-ec853.web.app/js/scripts.min.js"></script>
+  <script src="https://cdn-ec853.web.app/js/ui-v2.js"></script>
 </body>
+
 </html>
