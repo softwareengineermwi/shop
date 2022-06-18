@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="js">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="../assets/css/style.min.css">
   <title>Thee Crafty Soul | Shop</title>
-<script defer src="main.js"></script></head>
+</head>
 
 <body class="position-relative">
-  <header class="container margin-y-md flex justify-center position-fixed top-0 width-100%">
+  <header class="container margin-y-md">
     <div class="filter-nav filter-nav--v2 filter-nav--expanded js-filter-nav">
       <button class="reset btn btn--subtle is-hidden js-filter-nav__control" aria-label="Select a filter option"
         aria-controls="filter-nav">
         <span class="js-filter-nav__placeholder" aria-hidden="true">All Products</span>
+
         <svg class="icon icon--xxs margin-left-xxs" aria-hidden="true" viewBox="0 0 12 12">
           <polyline points="1 4 6 9 11 4" fill="none" stroke="currentColor" stroke-linecap="round"
             stroke-linejoin="round" stroke-width="2" />
@@ -24,12 +27,11 @@
 
       <div class="filter-nav__wrapper js-filter-nav__wrapper" id="filter-nav">
         <nav class="filter-nav__nav justify-center js-filter-nav__nav">
-          <ul class="filter-nav__list js-filter-nav__list" aria-controls="product-gallery-v2" id="foo">
+          <ul class="filter-nav__list js-filter-nav__list" aria-controls="product-gallery-v2" id="categories">
             <li class="filter-nav__item">
-              <button id="all_products" class="reset filter-nav__btn js-filter-nav__btn js-tab-focus"
-                aria-current="true" data-filter="*">All Products</button>
+              <button class="reset filter-nav__btn js-filter-nav__btn js-tab-focus" aria-current="true"
+                data-filter="*">All Products</button>
             </li>
-
             <li class="filter-nav__marker js-filter-nav__marker" aria-hidden="true"></li>
           </ul>
 
@@ -49,45 +51,202 @@
     </div>
   </header>
 
-  <main class="max-width-md margin-x-auto">
-    <section class="products-gallery padding-y-xxl">
-      <div class="container max-width-adaptive-lg">
-        <div class="margin-bottom-lg">
-          <div class="grid items-center">
-            <div class="col-12 col-6@md">
-              <h1 id="highlight">All products</h1>
-            </div>
-            <div class="col-12 col-6@md flex justify-end@md">
-              <button class="btn btn--subtle btn--sm" role="text"
-                onclick="document.getElementById('all_products').click()">View all <i
-                  class="sr-only">products</i></button>
-            </div>
+  <section class="products-gallery padding-bottom-xxl">
+    <div class="container max-width-adaptive-lg">
+      <div class="margin-bottom-lg">
+        <div class="grid items-center">
+          <div class="col-6">
+            <h1 id="category">All Products</h1>
+          </div>
+          <div class="col-6 flex justify-end@md">
+            <a href="#0" class="btn btn--subtle btn--sm display@md" role="text">View all <i
+                class="sr-only">products</i></a>
           </div>
         </div>
-        <div class="grid gap-md" id="shop"></div>
       </div>
-    </section>
-  </main>
 
-  <section class="position-fixed bottom-0 width-100% bg-white">
-    <div class="container max-width-md">
-      <div class="grid items-center padding-y-sm">
-        <div class="col-6">
-          <span class="text-xxl">$<span class="text-xl" id="total">0</span></span>
-        </div>
-        <div class="col-6">
-          <div class="flex justify-end">
-            <a href="../cart/" class="btn btn--primary">
-              <span class="material-icons">arrow_forward</span>
-              <span id="cart_counter" class="counter counter--light margin-left-xxs">12</span></a>
-          </div>
-        </div>
+      <div class="grid gap-md">
+        <div class="col-4@md" id="col1"></div>
+        <div class="col-4@md" id="col2"></div>
+        <div class="col-4@md" id="col3"></div>
+      </div>
+
+      <div class="margin-top-lg hide@md">
+        <a href="#0" class="btn btn--subtle btn--md width-100%">View all products</a>
       </div>
     </div>
   </section>
 
+  <div class="drawer drawer--modal dr-cart js-drawer" id="drawer-cart-id">
+    <div class="drawer__content bg inner-glow shadow-md flex flex-column" role="alertdialog"
+      aria-labelledby="drawer-cart-title">
+      <header
+        class="flex items-center justify-between flex-shrink-0 border-bottom border-contrast-lower padding-x-sm padding-y-xs">
+        <h1 id="drawer-cart-title" class="text-base text-truncate">Your Cart (<span id="pCount"></span>)</h1>
+
+        <button class="reset drawer__close-btn js-drawer__close js-tab-focus">
+          <svg class="icon icon--xs" viewBox="0 0 16 16">
+            <title>Close drawer panel</title>
+            <g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              stroke-miterlimit="10">
+              <line x1="13.5" y1="2.5" x2="2.5" y2="13.5"></line>
+              <line x1="2.5" y1="2.5" x2="13.5" y2="13.5"></line>
+            </g>
+          </svg>
+        </button>
+      </header>
+
+      <div class="drawer__body padding-x-sm padding-bottom-sm js-drawer__body">
+        <ol id="cartProducts"></ol>
+      </div>
+
+      <footer class="padding-x-sm padding-y-xs border-top border-contrast-lower flex-shrink-0">
+        <p class="text-sm flex justify-between">
+          <span>Subtotal:</span>
+          <span>$<span id="cartTotal">0.00</span></span>
+        </p>
+
+        <button id="checkout" class="btn btn--primary btn--md width-100% margin-top-xs">Checkout</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="modal-pPay"
+    class="modal modal--animate-translate-up flex flex-center bg-black bg-opacity-90% padding-md js-modal">
+    <div
+      class="modal__content width-100% max-width-md max-height-100% overflow-auto bg radius-lg radius-bottom-left-0 radius-bottom-right-0 inner-glow shadow-md position-absolute bottom-0"
+      aria-labelledby="modal-title-1" aria-describedby="modal-description-1">
+      <div class="container max-width-md">
+        <div class="text-center">
+          <h1 class="text-xxxxl margin-y-xs">
+            $<span id="checkoutTotal"></span>
+          </h1>
+        </div>
+
+        <div>
+          <ul class="accordion  js-accordion" data-animation="on" data-multi-items="on">
+            <li class="accordion__item accordion__item--is-open js-accordion__item">
+              <button class="reset accordion__header padding-y-sm padding-x-md js-tab-focus" type="button">
+                <span class="text-md">Direct Mobile Money Transfer</span>
+
+                <svg class="icon accordion__icon-arrow no-js:is-hidden" viewBox="0 0 20 20" aria-hidden="true">
+                  <g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="10" y1="14" x2="3" y2="7" />
+                    <line x1="17" y1="7" x2="10" y2="14" />
+                  </g>
+                </svg>
+              </button>
+
+              <div class="accordion__panel padding-top-xxs padding-x-md padding-bottom-md js-accordion__panel">
+                <div class="">
+                  <div>
+                    <label for="phone">
+                      <small>Mobile Money Phone Number (this will be used as order and transaction reference).</small>
+                    </label>
+
+                    <div class="padding-y-sm">
+                      <input id="phone" type="phone" class="form-control width-100%" placeholder="Phone Number">
+                    </div>
+                  </div>
+
+                  <button class="btn btn--primary btn--lg width-100%" id="btnOrder">Order</button>
+                </div>
+              </div>
+            </li>
+
+            <li class="accordion__item accordion__item--is-closed js-accordion__item">
+              <button class="reset accordion__header padding-y-sm padding-x-md js-tab-focus" type="button">
+                <span class="text-md">
+                  <img src="../assets/button-mtn.png"alt="">
+                </span>
+
+                <svg class="icon accordion__icon-arrow no-js:is-hidden" viewBox="0 0 20 20" aria-hidden="true">
+                  <g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="10" y1="14" x2="3" y2="7" />
+                    <line x1="17" y1="7" x2="10" y2="14" />
+                  </g>
+                </svg>
+              </button>
+
+              <div class="accordion__panel padding-top-xxs padding-x-md padding-bottom-md js-accordion__panel">
+                <div class="">
+                  <div>
+                    <label for="phone">
+                      <small>This service is temporarily unavailable. Please choose other options.</small>
+                    </label>
+                  </div>
+                </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <button class="reset modal__close-btn modal__close-btn--outer display@md js-modal__close js-tab-focus">
+      <svg class="icon icon--sm" viewBox="0 0 24 24">
+        <title>Close modal window</title>
+        <g fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="3" y1="3" x2="21" y2="21" />
+          <line x1="21" y1="3" x2="3" y2="21" />
+        </g>
+      </svg>
+    </button>
+  </div>
+
+  <div id="modal-order"
+    class="modal modal--animate-translate-up flex flex-center bg-black bg-opacity-90% padding-md js-modal">
+    <div
+      class="modal__content width-100% max-width-md max-height-100% overflow-auto bg radius-lg radius-bottom-left-0 radius-bottom-right-0 inner-glow shadow-md position-absolute bottom-0"
+      aria-labelledby="modal-title-1" aria-describedby="modal-description-1">
+      <div class="container max-width-md text-center padding-y-lg">
+        <div>
+          <i class="material-icons xxxxl">check_circle</i>
+        </div>
+        <label for="orderId">To make payment, transfer $<span id="transferTotal"></span> to</label>
+        <h1 class="text-xxxxl">0969333667</h1>
+
+        <div class="padding-top-md">
+          <label for="orderId">Your Order ID is</label>
+          <h1 class="text-xxl" id="orderId"></h1>
+        </div>
+      </div>
+    </div>
+
+    <button class="reset modal__close-btn modal__close-btn--outer display@md js-modal__close js-tab-focus">
+      <svg class="icon icon--sm" viewBox="0 0 24 24">
+        <title>Close modal window</title>
+        <g fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="3" y1="3" x2="21" y2="21" />
+          <line x1="21" y1="3" x2="3" y2="21" />
+        </g>
+      </svg>
+    </button>
+  </div>
+
+  <div class="position-fixed z-index-fixed-element bottom-0 width-100% bg-white">
+    <div class="container max-width-lg">
+      <div class="grid items-center padding-y-sm">
+        <div class="col-6 flex items-center">
+          <h3>$</h3>
+          <h3 class="text-xl" id="total">0.00</h3>
+        </div>
+        <div class="col-6">
+          <div class="flex justify-end">
+            <button class="btn btn--primary" aria-controls="drawer-cart-id">
+              <span class="material-icons">arrow_forward</span>
+              <span id="cartCount" class="counter counter--light margin-left-xxs">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn-ec853.web.app/js/scripts.min.js"></script>
-  <script src="https://cdn-ec853.web.app/js/ui-v2.js"></script>
 </body>
 
 </html>
