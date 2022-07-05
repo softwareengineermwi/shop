@@ -1,50 +1,41 @@
-import './css/style.css'
+import './style.css'
+import './custom-style/custom.css'
+// import './scripts.js'
 
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, addDoc, query, collection, getDocs, doc, updateDoc, serverTimestamp } from 'firebase/firestore'
+import { getFirestore, getDoc, addDoc, query, collection, getDocs, doc, updateDoc, serverTimestamp } from 'firebase/firestore'
 import shop, { getTotal } from './shop';
 import { updateCartDsp, categorise } from './shop';
 import { closeDrawer, closeModal, g, openModal, openModal_v2 } from '../../shop-admin/src/js/utils';
-import { async } from '@firebase/util';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAOoPVb11afNm662MKAbX5IfFsXf-0LRss",
-  authDomain: "theecraftysoul-6efc7.firebaseapp.com",
-  projectId: "theecraftysoul-6efc7",
-  storageBucket: "theecraftysoul-6efc7.appspot.com",
-  messagingSenderId: "81244087155",
-  appId: "1:81244087155:web:c695e6403393eae483db06",
-  measurementId: "G-CY91DEXG3D"
-};
+  apiKey: "AIzaSyCoiz3Po-dElQonM_iHUKYNU4ijwlNHtPY",
+  authDomain: "bigbossshopzm.firebaseapp.com",
+  projectId: "bigbossshopzm",
+  storageBucket: "bigbossshopzm.appspot.com",
+  messagingSenderId: "664738796921",
+  appId: "1:664738796921:web:fb9645dada2acc0faa8ba8",
+  measurementId: "G-3L247TS21Z"
+}
 
-
-initializeApp(firebaseConfig);
+initializeApp(firebaseConfig)
 
 const db = getFirestore()
 
-const querySnapshot = await getDocs(query(collection(db, "categories")))
-const categories = querySnapshot.docs.map((snapshot) => {
-  return {
-    products: snapshot.data(),
-    id: `${snapshot.id}`
-  }
-})
+const qString = window.location.search
+const urlParams = new URLSearchParams(qString)
 
-window.addEventListener("navigate", (e) => {
-  g("category").innerText = e.detail
-  if (e.detail == "All Products") {
-    shop(categories)
-    return
-  }
+if (urlParams.has('category')) {
+  const categories = await getDoc(doc(db, `categories/${urlParams.get('category')}`))
+  const data = categories.data()
 
-  const filtered = categories.filter(category => category.id.trim() == e.detail)
-  shop(filtered)
-})
-
-categorise(categories)
-shop(categories)
-updateCartDsp("thee_craty_soul")
+  categorise(data)
+  shop(data, 0)
+  window.addEventListener("navigate", (e) => { shop(data, parseInt(e.detail, 10)) })
+} else {
+  console.log("sdfghjk");
+}
 
 g("checkout").addEventListener("click", (e) => {
   g("drawer-cart-id").classList.toggle("drawer--is-visible")
@@ -69,3 +60,17 @@ g("btnOrder").addEventListener("click", async (e) => {
     })
   } else { alert("Phone number required!") }
 })
+
+// const querySnapshot = await getDocs(query(collection(db, "categories")))
+
+// const categories = querySnapshot.docs.map((snapshot) => {
+//   return {
+//     products: snapshot.data(),
+//     id: `${snapshot.id}`
+//   }
+// })
+
+// updateCartDsp("thee_craty_soul")
+
+
+

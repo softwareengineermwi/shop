@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  devtool: 'source-map',
   mode: 'development',
   entry: './src/index.js',
   plugins: [
@@ -27,7 +28,7 @@ module.exports = {
   },
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, '../theeCraftySoul/y/shop'),
+    path: path.resolve(__dirname, '../BigBoss/public/shop'),
   },
   experiments: {
     topLevelAwait: true

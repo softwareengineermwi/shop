@@ -1,4 +1,7 @@
-import { g, c } from "../../shop-admin/src/js/utils";
+import { t } from "../../pickanappApp/src/utils";
+import { g, c, openModal } from "../../shop-admin/src/js/utils";
+import accommodation from "./cards/accommodation";
+import car from "./cards/car";
 
 var total = 0
 
@@ -135,46 +138,130 @@ const selectable = (product, key) => {
   return card
 }
 
-function categoryUi(key) {
+const categoryUi = (key, position) => {
   const category = document.createElement("template")
   category.innerHTML = `<li class="filter-nav__item">
-    <button class="reset filter-nav__btn js-filter-nav__btn js-tab-focus" data-filter="${key}">${key}</button>
+    <button value="${position}" class="reset filter-nav__btn js-filter-nav__btn js-tab-focus" data-filter="${position}">${key}</button>
   </li>`
   return category.content.firstChild
 }
 
-const categorise = (categories) => {
+const categorise = (category, target) => {
   const categoriesArea = g("categories")
-  categories.forEach(category => {
-    categoriesArea.appendChild(categoryUi(category.id))
+  category.items.forEach((element, i) => {
+    categoriesArea.appendChild(categoryUi(element.name, i))
   });
 }
 
-function clearColumns() {
+const clearColumns = () => {
   g("col1").innerHTML = ""
   g("col2").innerHTML = ""
   g("col3").innerHTML = ""
 }
 
-const shop = (categories) => {
-  console.log(categories);
+const dsp = (items, card) => {
+  switch (card) {
+    case "car":
+      items.forEach((element, i) => {
+        g("shop").appendChild(car(element, i))
+      });
+      break
+    case "accommodation":
+      items.forEach((element, i) => {
+        g("shop").appendChild(accommodation(element, i))
+      });
+      break
+  }
+}
 
-  var umn = 1
+/************************************************** */
+var slideIndex = 1;
 
-  clearColumns()
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-  categories.forEach(category => {
-    for (const key in category.products) {
-      if (Object.hasOwnProperty.call(category.products, key)) {
-        const product = category.products[key];
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
 
-        if (umn == 4) { umn = 1 }
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  // let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
 
-        g(`col${umn}`).appendChild(selectable(product, key))
-        umn++
-      }
-    }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  // for (i = 0; i < dots.length; i++) {
+  //   dots[i].className = dots[i].className.replace(" active", "");
+  // }
+
+  slides[slideIndex - 1].style.display = "block";
+  
+  // dots[slideIndex - 1].className += " active";
+
+  g("prev").addEventListener("click", () => {
+    plusSlides(-1)
   })
+
+  g("next").addEventListener("click", () => {
+    plusSlides(1)
+  })
+}
+/**************************************************/
+
+const dspProduct = (data) => {
+  slideIndex = 1
+
+  console.log(data);
+  g("modal-title").innerText = data.name;
+
+  console.log(data.images);
+
+  data.images.forEach(element => {
+    g("mSlides").appendChild(t(`<div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <img src="${element}" style="width:100%">
+    </div>`))
+  });
+
+  openModal(g("modal-full-screen"))
+  showSlides(slideIndex);
+}
+
+const shop = (data, position) => {
+  const shopArea = g('shop')
+  shopArea.innerHTML = ''
+
+  const category = data.items[position]
+
+  switch (data.type) {
+    case "accommodation":
+      console.log(category);
+      dsp(category.items, "accommodation")
+
+      document.querySelectorAll(".acc").forEach(element => {
+        element.addEventListener("click", (e) => {
+          e.preventDefault()
+          dspProduct(category.items[parseInt(e.target.id, 10)])
+        })
+      });
+      break
+    case "vehicle":
+      console.log(category);
+      dsp(category.items, "car")
+      document.querySelectorAll(".acc").forEach(element => {
+        element.addEventListener("click", (e) => {
+          e.preventDefault()
+          dspProduct(category.items[parseInt(e.target.id, 10)])
+        })
+      });
+      break
+  }
 }
 
 export { updateCartDsp, categorise, getTotal }

@@ -14212,6 +14212,28 @@ h1, h2, h3, h4 {
   font-size: var(--text-sm);
 }
 
+.logo {
+  width: 200px;
+}
+
+.radius-custom {
+  border-radius: 2em;
+}
+
+.shop {
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.shop-content {
+  padding-top: 2em;
+  overflow: auto;
+}
+
+.card {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 /*! purgecss start ignore */
 /* -------------------------------- 
 
@@ -14326,6 +14348,153 @@ Usage: codyhouse.co/license
   overflow: hidden;
 }
 
+/* -------------------------------- 
+
+File#: _1_accordion
+Title: Accordion
+Descr: Create stacked sections of content and allow the user to expand/collapse them
+Usage: codyhouse.co/license
+
+-------------------------------- */
+:root {
+  /* general */
+  --accordion-border-width: 1px;
+  /* icon */
+  --accordion-icon-size: 20px;
+  --accordion-icon-stroke-width: 2px;
+}
+
+.accordion__item {
+  border-style: solid;
+  border-color: var(--color-contrast-lower);
+  border-bottom-width: var(--accordion-border-width);
+}
+.accordion__item:first-child {
+  border-top-width: var(--accordion-border-width);
+}
+
+.accordion__header {
+  /* button */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+}
+.accordion__header .icon {
+  --size: var(--accordion-icon-size);
+}
+.accordion__header .icon .icon__group {
+  stroke-width: var(--accordion-icon-stroke-width);
+}
+
+.accordion__icon-arrow .icon__group,
+.accordion__icon-arrow-v2 .icon__group,
+.accordion__icon-plus .icon__group {
+  will-change: transform;
+  transform-origin: 50% 50%;
+}
+
+.accordion__icon-arrow .icon__group > * {
+  transform-origin: 10px 14px;
+}
+
+.accordion__icon-arrow-v2 .icon__group > * {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 20;
+  transform: translateY(4px);
+}
+.accordion__icon-arrow-v2 .icon__group > *:first-child {
+  stroke-dashoffset: 10.15;
+}
+.accordion__icon-arrow-v2 .icon__group > *:last-child {
+  stroke-dashoffset: 10.15;
+}
+
+.accordion__icon-plus .icon__group {
+  transform: rotate(-90deg);
+}
+.accordion__icon-plus .icon__group > * {
+  transform-origin: 50% 50%;
+}
+.accordion__icon-plus .icon__group > *:first-child {
+  transform: rotate(-90deg);
+}
+
+.accordion__item--is-open > .accordion__header > .accordion__icon-arrow .icon__group {
+  /* animated arrow icon */
+}
+.accordion__item--is-open > .accordion__header > .accordion__icon-arrow .icon__group > *:first-child {
+  transform: translateY(-8px) rotate(-90deg);
+}
+.accordion__item--is-open > .accordion__header > .accordion__icon-arrow .icon__group > *:last-child {
+  transform: translateY(-8px) rotate(90deg);
+}
+.accordion__item--is-open > .accordion__header > .accordion__icon-arrow-v2 .icon__group {
+  /* animated arrow icon v2 */
+  transform: rotate(-90deg);
+}
+.accordion__item--is-open > .accordion__header > .accordion__icon-arrow-v2 .icon__group > *:first-child,
+.accordion__item--is-open > .accordion__header > .accordion__icon-arrow-v2 .icon__group *:last-child {
+  stroke-dashoffset: 0;
+  transform: translateY(0px);
+}
+.accordion__item--is-open > .accordion__header > .accordion__icon-plus .icon__group {
+  /* animated plus icon */
+  transform: rotate(0);
+}
+.accordion__item--is-open > .accordion__header > .accordion__icon-plus .icon__group > *:first-child {
+  transform: rotate(0);
+}
+
+.js .accordion__panel {
+  display: none;
+  will-change: height;
+  transform: translateZ(0px);
+}
+.js .accordion__item--is-open > .accordion__panel {
+  display: block;
+}
+
+/* animations */
+.accordion[data-animation=on] .accordion__item--is-open .accordion__panel > * {
+  -webkit-animation: accordion-entry-animation 0.4s var(--ease-out);
+          animation: accordion-entry-animation 0.4s var(--ease-out);
+}
+.accordion[data-animation=on] .accordion__icon-arrow .icon__group,
+.accordion[data-animation=on] .accordion__icon-arrow-v2 .icon__group,
+.accordion[data-animation=on] .accordion__icon-plus .icon__group {
+  transition: transform 0.3s var(--ease-out);
+}
+.accordion[data-animation=on] .accordion__icon-arrow .icon__group > *,
+.accordion[data-animation=on] .accordion__icon-arrow-v2 .icon__group > *,
+.accordion[data-animation=on] .accordion__icon-plus .icon__group > * {
+  transition: transform 0.3s, stroke-dashoffset 0.3s;
+  transition-timing-function: var(--ease-out);
+}
+
+@-webkit-keyframes accordion-entry-animation {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes accordion-entry-animation {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 /* -------------------------------- 
 
 File#: _1_anim-menu-btn
@@ -15271,7 +15440,6 @@ Usage: codyhouse.co/license
 
 .card-v10__footer {
   margin-top: auto;
-  padding: var(--space-xxs);
   border-top: 1px solid var(--color-contrast-lower);
 }
 
@@ -17544,6 +17712,119 @@ Usage: codyhouse.co/license
 
 /* -------------------------------- 
 
+File#: _1_rating
+Title: Rating
+Descr: A rating plugin that allows users to vote for your products
+Usage: codyhouse.co/license
+
+-------------------------------- */
+:root {
+  --rating-icon-size: 1.75em;
+}
+
+.rating__control ul {
+  display: inline-block;
+  display: inline-flex;
+  vertical-align: top;
+}
+.rating__control li {
+  position: relative;
+  height: var(--rating-icon-size);
+  width: var(--rating-icon-size);
+  float: left;
+  cursor: pointer;
+}
+.rating__control li:focus {
+  outline: none;
+}
+.rating__control li:focus::before {
+  transform: scale(1);
+  opacity: 0.2;
+}
+.rating__control li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.2s;
+}
+.rating__control li.rating__item--zero {
+  display: none;
+}
+
+.rating__control--is-hidden {
+  display: none;
+}
+
+.rating__icon,
+.rating__control li::before,
+.rating[data-animation=on] .rating__control ul:hover .rating__icon {
+  color: var(--color-primary);
+}
+
+.rating__icon--inactive,
+.rating[data-animation=on] .rating__control li:hover ~ li .rating__icon,
+.rating__item--checked ~ li .rating__icon {
+  color: var(--color-contrast-lower);
+}
+
+.rating__icon {
+  overflow: hidden;
+}
+.rating__icon svg {
+  display: block;
+  height: var(--rating-icon-size);
+  width: var(--rating-icon-size);
+  max-width: var(--rating-icon-size);
+  pointer-events: none;
+}
+
+.rating--read-only .rating__control li {
+  cursor: default;
+}
+
+.rating__icon--inactive {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.rating__item--half .rating__icon:not(.rating__icon--inactive) {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+}
+
+.rating[data-animation=on] .rating__control li:active .rating__icon {
+  transform: scale(0.8);
+}
+.rating[data-animation=on] .rating__icon {
+  transition: 0.2s;
+}
+
+.js .rating__select {
+  display: none;
+}
+
+.rating__link {
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+.rating__link:hover {
+  opacity: 0.85;
+}
+
+/* -------------------------------- 
+
 File#: _1_search-input
 Title: Search input
 Descr: Search input field with custom button
@@ -18576,7 +18857,7 @@ Usage: codyhouse.co/license
 
 -------------------------------- */
 :root {
-  --f-header-height: 10vh;
+  --f-header-height: 50px;
   --f-header-logo-width: 104px;
 }
 @media (min-width: 64rem) {
@@ -18605,7 +18886,7 @@ Usage: codyhouse.co/license
   position: relative;
   display: flex;
   height: 100%;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   z-index: 2;
 }
@@ -18855,21 +19136,6 @@ Usage: codyhouse.co/license
     color: var(--color-contrast-higher);
   }
 }
-html:not(.js) .f-header {
-  height: auto;
-}
-html:not(.js) .f-header__nav-control {
-  display: none;
-}
-html:not(.js) .f-header__nav {
-  position: static;
-  padding: var(--space-xxs) 0 var(--space-md);
-  box-shadow: none;
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* -------------------------------- 
 
 File#: _2_floating-navigation
