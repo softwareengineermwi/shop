@@ -2,6 +2,8 @@ import { t } from "../../pickanappApp/src/utils";
 import { g, c, openModal } from "../../shop-admin/src/js/utils";
 import accommodation from "./cards/accommodation";
 import car from "./cards/car";
+import profile from "./cards/profile"
+import imageZoom from "./components/zoom"
 
 var total = 0
 
@@ -171,66 +173,68 @@ const dsp = (items, card) => {
         g("shop").appendChild(accommodation(element, i))
       });
       break
+    case "profile":
+      items.forEach((element, i) => {
+        g("shop").appendChild(profile(element, i))
+      });
+      break
   }
 }
 
 /************************************************** */
 var slideIndex = 1;
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+function showSlides(n, imgs) {
+  g("myimage").src = imgs[n]
+  g("i").innerText = n + 1
+  g("t").innerText = imgs.length
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+  // let i;
+  // let slides = document.getElementsByClassName("mySlides");
+  // // let dots = document.getElementsByClassName("dot");
+  // if (n > slides.length) { slideIndex = 1 }
+  // if (n < 1) { slideIndex = slides.length }
 
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  // let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) { slideIndex = 1 }
-  if (n < 1) { slideIndex = slides.length }
-
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
+  // for (i = 0; i < slides.length; i++) {
+  //   slides[i].style.display = "none";
+  // }
 
   // for (i = 0; i < dots.length; i++) {
   //   dots[i].className = dots[i].className.replace(" active", "");
   // }
 
-  slides[slideIndex - 1].style.display = "block";
-  
+  // slides[slideIndex - 1].style.display = "block";
+
   // dots[slideIndex - 1].className += " active";
-
-  g("prev").addEventListener("click", () => {
-    plusSlides(-1)
-  })
-
-  g("next").addEventListener("click", () => {
-    plusSlides(1)
-  })
 }
 /**************************************************/
 
 const dspProduct = (data) => {
-  slideIndex = 1
-
   console.log(data);
+
   g("modal-title").innerText = data.name;
+  g("modal-subtitle").innerText = data.name;
+  g("d_price").innerText = `$${data.sPrice}`;
+  g("description").innerText = data.description;
 
   console.log(data.images);
 
-  data.images.forEach(element => {
-    g("mSlides").appendChild(t(`<div class="mySlides fade">
-      <div class="numbertext">1 / 3</div>
-      <img src="${element}" style="width:100%">
+  data.images.forEach((e, i) => {
+    g("thumbnails").appendChild(t(`<div class="column">
+      <img id="${i}" class="demo cursor thumbnail" src="${e}" style="width:100%">
     </div>`))
   });
 
+  document.querySelectorAll(".thumbnail").forEach(element => {
+    element.addEventListener("click", (e) => {
+      showSlides(parseInt(e.target.id, 10), data.images)
+    })
+  });
+
   openModal(g("modal-full-screen"))
-  showSlides(slideIndex);
+
+  showSlides(0, data.images);
+  imageZoom("myimage", "myresult");
 }
 
 const shop = (data, position) => {
@@ -249,20 +253,80 @@ const shop = (data, position) => {
           e.preventDefault()
           dspProduct(category.items[parseInt(e.target.id, 10)])
         })
-      });
+      })
       break
     case "vehicle":
       console.log(category);
-      dsp(category.items, "car")
+      const items = category.items
+
+      dsp(items, "car")
+
+      document.querySelectorAll(".acc").forEach(element => {
+        element.addEventListener("click", (e) => {
+          e.preventDefault()
+          dspProduct(items[parseInt(e.target.id, 10)])
+        })
+      })
+
+      document.querySelectorAll(".buy-now-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          openModal(g("modal-pPay"))
+        })
+      })
+
+      g("d_price").style.display = "block"
+      g("buy-now-btn").style.display = "block"
+      g("btn-get-quote").style.display = "block"
+      // g("btn-hire-now").style.display = "block"
+      break
+    case "profile":
+      dsp(category.items, "profile")
       document.querySelectorAll(".acc").forEach(element => {
         element.addEventListener("click", (e) => {
           e.preventDefault()
           dspProduct(category.items[parseInt(e.target.id, 10)])
         })
-      });
+      })
+
+      g("btn-hire-now").style.display = "block"
+      g("d_price").style.display = "block"
       break
   }
 }
 
+g("btn-hire-now").addEventListener("click", () => {
+  openModal(g("modal-form"))
+})
+
 export { updateCartDsp, categorise, getTotal }
 export default shop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function plusSlides(n) {
+//   showSlides(slideIndex += n);
+// }
+
+// function currentSlide(n) {
+//   showSlides(slideIndex = n);
+// }
+
+    // g("mSlides").appendChild(t(`<div class="mySlides fade">
+    //   <div class="numbertext">${i + 1} / ${data.images.length}</div>
+    //   <img src="${e}" style="width:100%">
+    // </div>`))

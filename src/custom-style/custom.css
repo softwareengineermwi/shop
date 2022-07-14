@@ -29,7 +29,7 @@
 
 /* Hide the images by default */
 .mySlides {
-  display: none;
+  /* display: none; */
 }
 
 /* Add a pointer when hovering over the thumbnail images */
@@ -103,4 +103,23 @@
 .active,
 .demo:hover {
   opacity: 1;
+}
+
+
+.img-zoom-container {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 100px;
+  height: 100px;
+}
+
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  height: 100%;
 }

@@ -13696,26 +13696,26 @@ html:not(.js) .no-js\:is-hidden {
   --color-primary-lighter-h: 0;
   --color-primary-lighter-s: 0%;
   --color-primary-lighter-l: 69%;
-  --color-accent-darker: hsl(49, 88%, 39%);
-  --color-accent-darker-h: 49;
-  --color-accent-darker-s: 88%;
-  --color-accent-darker-l: 39%;
-  --color-accent-dark: hsl(49, 88%, 49%);
-  --color-accent-dark-h: 49;
-  --color-accent-dark-s: 88%;
-  --color-accent-dark-l: 49%;
-  --color-accent: hsl(49, 88%, 59%);
-  --color-accent-h: 49;
-  --color-accent-s: 88%;
-  --color-accent-l: 59%;
-  --color-accent-light: hsl(49, 88%, 69%);
-  --color-accent-light-h: 49;
-  --color-accent-light-s: 88%;
-  --color-accent-light-l: 69%;
-  --color-accent-lighter: hsl(49, 88%, 79%);
-  --color-accent-lighter-h: 49;
-  --color-accent-lighter-s: 88%;
-  --color-accent-lighter-l: 79%;
+  --color-accent-darker: hsl(36, 100%, 44%);
+  --color-accent-darker-h: 36;
+  --color-accent-darker-s: 100%;
+  --color-accent-darker-l: 44%;
+  --color-accent-dark: hsl(36, 100%, 50%);
+  --color-accent-dark-h: 36;
+  --color-accent-dark-s: 100%;
+  --color-accent-dark-l: 50%;
+  --color-accent: hsl(36, 100%, 56%);
+  --color-accent-h: 36;
+  --color-accent-s: 100%;
+  --color-accent-l: 56%;
+  --color-accent-light: hsl(36, 100%, 62%);
+  --color-accent-light-h: 36;
+  --color-accent-light-s: 100%;
+  --color-accent-light-l: 62%;
+  --color-accent-lighter: hsl(36, 100%, 68%);
+  --color-accent-lighter-h: 36;
+  --color-accent-lighter-s: 100%;
+  --color-accent-lighter-l: 68%;
   --color-black: hsl(204, 28%, 7%);
   --color-black-h: 204;
   --color-black-s: 28%;
@@ -13826,160 +13826,159 @@ html:not(.js) .no-js\:is-hidden {
   --color-contrast-higher-l: 7%;
 }
 
-@supports (--css: variables) {
-  [data-theme=dark] {
-    --color-primary-darker: hsl(250, 93%, 57%);
-    --color-primary-darker-h: 250;
-    --color-primary-darker-s: 93%;
-    --color-primary-darker-l: 57%;
-    --color-primary-dark: hsl(250, 93%, 61%);
-    --color-primary-dark-h: 250;
-    --color-primary-dark-s: 93%;
-    --color-primary-dark-l: 61%;
-    --color-primary: hsl(250, 93%, 65%);
-    --color-primary-h: 250;
-    --color-primary-s: 93%;
-    --color-primary-l: 65%;
-    --color-primary-light: hsl(250, 93%, 69%);
-    --color-primary-light-h: 250;
-    --color-primary-light-s: 93%;
-    --color-primary-light-l: 69%;
-    --color-primary-lighter: hsl(250, 93%, 72%);
-    --color-primary-lighter-h: 250;
-    --color-primary-lighter-s: 93%;
-    --color-primary-lighter-l: 72%;
-    --color-accent-darker: hsl(342, 92%, 41%);
-    --color-accent-darker-h: 342;
-    --color-accent-darker-s: 92%;
-    --color-accent-darker-l: 41%;
-    --color-accent-dark: hsl(342, 92%, 47%);
-    --color-accent-dark-h: 342;
-    --color-accent-dark-s: 92%;
-    --color-accent-dark-l: 47%;
-    --color-accent: hsl(342, 92%, 54%);
-    --color-accent-h: 342;
-    --color-accent-s: 92%;
-    --color-accent-l: 54%;
-    --color-accent-light: hsl(342, 92%, 60%);
-    --color-accent-light-h: 342;
-    --color-accent-light-s: 92%;
-    --color-accent-light-l: 60%;
-    --color-accent-lighter: hsl(342, 92%, 65%);
-    --color-accent-lighter-h: 342;
-    --color-accent-lighter-s: 92%;
-    --color-accent-lighter-l: 65%;
-    --color-black: hsl(204, 28%, 7%);
-    --color-black-h: 204;
-    --color-black-s: 28%;
-    --color-black-l: 7%;
-    --color-white: hsl(0, 0%, 100%);
-    --color-white-h: 0;
-    --color-white-s: 0%;
-    --color-white-l: 100%;
-    --color-warning-darker: hsl(46, 100%, 47%);
-    --color-warning-darker-h: 46;
-    --color-warning-darker-s: 100%;
-    --color-warning-darker-l: 47%;
-    --color-warning-dark: hsl(46, 100%, 50%);
-    --color-warning-dark-h: 46;
-    --color-warning-dark-s: 100%;
-    --color-warning-dark-l: 50%;
-    --color-warning: hsl(46, 100%, 61%);
-    --color-warning-h: 46;
-    --color-warning-s: 100%;
-    --color-warning-l: 61%;
-    --color-warning-light: hsl(46, 100%, 71%);
-    --color-warning-light-h: 46;
-    --color-warning-light-s: 100%;
-    --color-warning-light-l: 71%;
-    --color-warning-lighter: hsl(46, 100%, 80%);
-    --color-warning-lighter-h: 46;
-    --color-warning-lighter-s: 100%;
-    --color-warning-lighter-l: 80%;
-    --color-success-darker: hsl(122, 50%, 47%);
-    --color-success-darker-h: 122;
-    --color-success-darker-s: 50%;
-    --color-success-darker-l: 47%;
-    --color-success-dark: hsl(122, 50%, 52%);
-    --color-success-dark-h: 122;
-    --color-success-dark-s: 50%;
-    --color-success-dark-l: 52%;
-    --color-success: hsl(122, 50%, 60%);
-    --color-success-h: 122;
-    --color-success-s: 50%;
-    --color-success-l: 60%;
-    --color-success-light: hsl(122, 50%, 69%);
-    --color-success-light-h: 122;
-    --color-success-light-s: 50%;
-    --color-success-light-l: 69%;
-    --color-success-lighter: hsl(122, 50%, 76%);
-    --color-success-lighter-h: 122;
-    --color-success-lighter-s: 50%;
-    --color-success-lighter-l: 76%;
-    --color-error-darker: hsl(342, 92%, 41%);
-    --color-error-darker-h: 342;
-    --color-error-darker-s: 92%;
-    --color-error-darker-l: 41%;
-    --color-error-dark: hsl(342, 92%, 47%);
-    --color-error-dark-h: 342;
-    --color-error-dark-s: 92%;
-    --color-error-dark-l: 47%;
-    --color-error: hsl(342, 92%, 54%);
-    --color-error-h: 342;
-    --color-error-s: 92%;
-    --color-error-l: 54%;
-    --color-error-light: hsl(342, 92%, 60%);
-    --color-error-light-h: 342;
-    --color-error-light-s: 92%;
-    --color-error-light-l: 60%;
-    --color-error-lighter: hsl(342, 92%, 65%);
-    --color-error-lighter-h: 342;
-    --color-error-lighter-s: 92%;
-    --color-error-lighter-l: 65%;
-    --color-bg-darker: hsl(204, 15%, 6%);
-    --color-bg-darker-h: 204;
-    --color-bg-darker-s: 15%;
-    --color-bg-darker-l: 6%;
-    --color-bg-dark: hsl(203, 18%, 9%);
-    --color-bg-dark-h: 203;
-    --color-bg-dark-s: 18%;
-    --color-bg-dark-l: 9%;
-    --color-bg: hsl(203, 24%, 13%);
-    --color-bg-h: 203;
-    --color-bg-s: 24%;
-    --color-bg-l: 13%;
-    --color-bg-light: hsl(203, 18%, 17%);
-    --color-bg-light-h: 203;
-    --color-bg-light-s: 18%;
-    --color-bg-light-l: 17%;
-    --color-bg-lighter: hsl(204, 15%, 20%);
-    --color-bg-lighter-h: 204;
-    --color-bg-lighter-s: 15%;
-    --color-bg-lighter-l: 20%;
-    --color-contrast-lower: hsl(208, 12%, 24%);
-    --color-contrast-lower-h: 208;
-    --color-contrast-lower-s: 12%;
-    --color-contrast-lower-l: 24%;
-    --color-contrast-low: hsl(208, 6%, 40%);
-    --color-contrast-low-h: 208;
-    --color-contrast-low-s: 6%;
-    --color-contrast-low-l: 40%;
-    --color-contrast-medium: hsl(213, 5%, 56%);
-    --color-contrast-medium-h: 213;
-    --color-contrast-medium-s: 5%;
-    --color-contrast-medium-l: 56%;
-    --color-contrast-high: hsl(223, 8%, 82%);
-    --color-contrast-high-h: 223;
-    --color-contrast-high-s: 8%;
-    --color-contrast-high-l: 82%;
-    --color-contrast-higher: hsl(240, 100%, 99%);
-    --color-contrast-higher-h: 240;
-    --color-contrast-higher-s: 100%;
-    --color-contrast-higher-l: 99%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+[data-theme=dark] {
+  --color-primary-darker: hsl(250, 93%, 57%);
+  --color-primary-darker-h: 250;
+  --color-primary-darker-s: 93%;
+  --color-primary-darker-l: 57%;
+  --color-primary-dark: hsl(250, 93%, 61%);
+  --color-primary-dark-h: 250;
+  --color-primary-dark-s: 93%;
+  --color-primary-dark-l: 61%;
+  --color-primary: hsl(250, 93%, 65%);
+  --color-primary-h: 250;
+  --color-primary-s: 93%;
+  --color-primary-l: 65%;
+  --color-primary-light: hsl(250, 93%, 69%);
+  --color-primary-light-h: 250;
+  --color-primary-light-s: 93%;
+  --color-primary-light-l: 69%;
+  --color-primary-lighter: hsl(250, 93%, 72%);
+  --color-primary-lighter-h: 250;
+  --color-primary-lighter-s: 93%;
+  --color-primary-lighter-l: 72%;
+  --color-accent-darker: hsl(342, 92%, 41%);
+  --color-accent-darker-h: 342;
+  --color-accent-darker-s: 92%;
+  --color-accent-darker-l: 41%;
+  --color-accent-dark: hsl(342, 92%, 47%);
+  --color-accent-dark-h: 342;
+  --color-accent-dark-s: 92%;
+  --color-accent-dark-l: 47%;
+  --color-accent: hsl(342, 92%, 54%);
+  --color-accent-h: 342;
+  --color-accent-s: 92%;
+  --color-accent-l: 54%;
+  --color-accent-light: hsl(342, 92%, 60%);
+  --color-accent-light-h: 342;
+  --color-accent-light-s: 92%;
+  --color-accent-light-l: 60%;
+  --color-accent-lighter: hsl(342, 92%, 65%);
+  --color-accent-lighter-h: 342;
+  --color-accent-lighter-s: 92%;
+  --color-accent-lighter-l: 65%;
+  --color-black: hsl(204, 28%, 7%);
+  --color-black-h: 204;
+  --color-black-s: 28%;
+  --color-black-l: 7%;
+  --color-white: hsl(0, 0%, 100%);
+  --color-white-h: 0;
+  --color-white-s: 0%;
+  --color-white-l: 100%;
+  --color-warning-darker: hsl(46, 100%, 47%);
+  --color-warning-darker-h: 46;
+  --color-warning-darker-s: 100%;
+  --color-warning-darker-l: 47%;
+  --color-warning-dark: hsl(46, 100%, 50%);
+  --color-warning-dark-h: 46;
+  --color-warning-dark-s: 100%;
+  --color-warning-dark-l: 50%;
+  --color-warning: hsl(46, 100%, 61%);
+  --color-warning-h: 46;
+  --color-warning-s: 100%;
+  --color-warning-l: 61%;
+  --color-warning-light: hsl(46, 100%, 71%);
+  --color-warning-light-h: 46;
+  --color-warning-light-s: 100%;
+  --color-warning-light-l: 71%;
+  --color-warning-lighter: hsl(46, 100%, 80%);
+  --color-warning-lighter-h: 46;
+  --color-warning-lighter-s: 100%;
+  --color-warning-lighter-l: 80%;
+  --color-success-darker: hsl(122, 50%, 47%);
+  --color-success-darker-h: 122;
+  --color-success-darker-s: 50%;
+  --color-success-darker-l: 47%;
+  --color-success-dark: hsl(122, 50%, 52%);
+  --color-success-dark-h: 122;
+  --color-success-dark-s: 50%;
+  --color-success-dark-l: 52%;
+  --color-success: hsl(122, 50%, 60%);
+  --color-success-h: 122;
+  --color-success-s: 50%;
+  --color-success-l: 60%;
+  --color-success-light: hsl(122, 50%, 69%);
+  --color-success-light-h: 122;
+  --color-success-light-s: 50%;
+  --color-success-light-l: 69%;
+  --color-success-lighter: hsl(122, 50%, 76%);
+  --color-success-lighter-h: 122;
+  --color-success-lighter-s: 50%;
+  --color-success-lighter-l: 76%;
+  --color-error-darker: hsl(342, 92%, 41%);
+  --color-error-darker-h: 342;
+  --color-error-darker-s: 92%;
+  --color-error-darker-l: 41%;
+  --color-error-dark: hsl(342, 92%, 47%);
+  --color-error-dark-h: 342;
+  --color-error-dark-s: 92%;
+  --color-error-dark-l: 47%;
+  --color-error: hsl(342, 92%, 54%);
+  --color-error-h: 342;
+  --color-error-s: 92%;
+  --color-error-l: 54%;
+  --color-error-light: hsl(342, 92%, 60%);
+  --color-error-light-h: 342;
+  --color-error-light-s: 92%;
+  --color-error-light-l: 60%;
+  --color-error-lighter: hsl(342, 92%, 65%);
+  --color-error-lighter-h: 342;
+  --color-error-lighter-s: 92%;
+  --color-error-lighter-l: 65%;
+  --color-bg-darker: hsl(204, 15%, 6%);
+  --color-bg-darker-h: 204;
+  --color-bg-darker-s: 15%;
+  --color-bg-darker-l: 6%;
+  --color-bg-dark: hsl(203, 18%, 9%);
+  --color-bg-dark-h: 203;
+  --color-bg-dark-s: 18%;
+  --color-bg-dark-l: 9%;
+  --color-bg: hsl(203, 24%, 13%);
+  --color-bg-h: 203;
+  --color-bg-s: 24%;
+  --color-bg-l: 13%;
+  --color-bg-light: hsl(203, 18%, 17%);
+  --color-bg-light-h: 203;
+  --color-bg-light-s: 18%;
+  --color-bg-light-l: 17%;
+  --color-bg-lighter: hsl(204, 15%, 20%);
+  --color-bg-lighter-h: 204;
+  --color-bg-lighter-s: 15%;
+  --color-bg-lighter-l: 20%;
+  --color-contrast-lower: hsl(208, 12%, 24%);
+  --color-contrast-lower-h: 208;
+  --color-contrast-lower-s: 12%;
+  --color-contrast-lower-l: 24%;
+  --color-contrast-low: hsl(208, 6%, 40%);
+  --color-contrast-low-h: 208;
+  --color-contrast-low-s: 6%;
+  --color-contrast-low-l: 40%;
+  --color-contrast-medium: hsl(213, 5%, 56%);
+  --color-contrast-medium-h: 213;
+  --color-contrast-medium-s: 5%;
+  --color-contrast-medium-l: 56%;
+  --color-contrast-high: hsl(223, 8%, 82%);
+  --color-contrast-high-h: 223;
+  --color-contrast-high-s: 8%;
+  --color-contrast-high-l: 82%;
+  --color-contrast-higher: hsl(240, 100%, 99%);
+  --color-contrast-higher-h: 240;
+  --color-contrast-higher-s: 100%;
+  --color-contrast-higher-l: 99%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 @media (min-width: 64rem) {
   :root {
     --space-unit: 1.25em;
@@ -15678,6 +15677,118 @@ Usage: codyhouse.co/license
 
 /* -------------------------------- 
 
+File#: _1_details-list
+Title: Details List
+Descr: Pairs of related information displayed in a list
+Usage: codyhouse.co/license
+
+-------------------------------- */
+:root {
+  --details-list-border-width: 1px;
+  --details-list-border-opacity: 0.15;
+}
+
+.details-list--rows .details-list__item {
+  border-bottom: var(--details-list-border-width) solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--details-list-border-opacity));
+}
+.details-list--rows .details-list__item:last-child {
+  border-bottom: none;
+}
+
+.details-list--cols .details-list__item {
+  border-right: var(--details-list-border-width) solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--details-list-border-opacity));
+}
+.details-list--cols .details-list__item:last-child {
+  border-right: none;
+}
+
+@media (min-width: 32rem) {
+  .details-list--rows\@xs .details-list__item {
+    border-right: 0;
+    border-bottom: var(--details-list-border-width) solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--details-list-border-opacity));
+  }
+  .details-list--rows\@xs .details-list__item:last-child {
+    border-bottom: none;
+  }
+
+  .details-list--cols\@xs .details-list__item {
+    border-bottom: 0;
+    border-right: var(--details-list-border-width) solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--details-list-border-opacity));
+  }
+  .details-list--cols\@xs .details-list__item:last-child {
+    border-right: none;
+  }
+}
+@media (min-width: 48rem) {
+  .details-list--rows\@sm .details-list__item {
+    border-right: 0;
+    border-bottom: var(--details-list-border-width) solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--details-list-border-opacity));
+  }
+  .details-list--rows\@sm .details-list__item:last-child {
+    border-bottom: none;
+  }
+
+  .details-list--cols\@sm .details-list__item {
+    border-bottom: 0;
+    border-right: var(--details-list-border-width) solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--details-list-border-opacity));
+  }
+  .details-list--cols\@sm .details-list__item:last-child {
+    border-right: none;
+  }
+}
+@media (min-width: 64rem) {
+  .details-list--rows\@md .details-list__item {
+    border-right: 0;
+    border-bottom: var(--details-list-border-width) solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--details-list-border-opacity));
+  }
+  .details-list--rows\@md .details-list__item:last-child {
+    border-bottom: none;
+  }
+
+  .details-list--cols\@md .details-list__item {
+    border-bottom: 0;
+    border-right: var(--details-list-border-width) solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--details-list-border-opacity));
+  }
+  .details-list--cols\@md .details-list__item:last-child {
+    border-right: none;
+  }
+}
+@media (min-width: 80rem) {
+  .details-list--rows\@lg .details-list__item {
+    border-right: 0;
+    border-bottom: var(--details-list-border-width) solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--details-list-border-opacity));
+  }
+  .details-list--rows\@lg .details-list__item:last-child {
+    border-bottom: none;
+  }
+
+  .details-list--cols\@lg .details-list__item {
+    border-bottom: 0;
+    border-right: var(--details-list-border-width) solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--details-list-border-opacity));
+  }
+  .details-list--cols\@lg .details-list__item:last-child {
+    border-right: none;
+  }
+}
+@media (min-width: 90rem) {
+  .details-list--rows\@xl .details-list__item {
+    border-right: 0;
+    border-bottom: var(--details-list-border-width) solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--details-list-border-opacity));
+  }
+  .details-list--rows\@xl .details-list__item:last-child {
+    border-bottom: none;
+  }
+
+  .details-list--cols\@xl .details-list__item {
+    border-bottom: 0;
+    border-right: var(--details-list-border-width) solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--details-list-border-opacity));
+  }
+  .details-list--cols\@xl .details-list__item:last-child {
+    border-right: none;
+  }
+}
+/* -------------------------------- 
+
 File#: _1_devices
 Title: Devices
 Descr: A collection of CSS tech devices
@@ -16796,6 +16907,7 @@ Usage: codyhouse.co/license
 }
 .filter-nav--expanded .filter-nav__list {
   display: inline-flex;
+  justify-content: start;
   position: relative;
 }
 .filter-nav--expanded .filter-nav__item {
@@ -16998,7 +17110,7 @@ Usage: codyhouse.co/license
 }
 
 /* no js */
-html:not(.js) .filter-nav__nav {
+.filter-nav__nav {
   justify-content: left;
 }
 
@@ -18329,6 +18441,54 @@ Usage: codyhouse.co/license
 
 /* -------------------------------- 
 
+File#: _1_table-v2
+Title: Table v2
+Descr: Basic table template
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.tbl {
+  position: relative;
+  z-index: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.tbl::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.tbl::-webkit-scrollbar-track {
+  background-color: var(--color-contrast-lower);
+}
+.tbl::-webkit-scrollbar-thumb {
+  background-color: hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), 0.9);
+  border-radius: 50em;
+}
+.tbl::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-contrast-higher);
+}
+
+.tbl__table {
+  width: 100%;
+}
+
+.tbl__body .tbl__row {
+  border-bottom: 1px solid var(--color-contrast-lower);
+  transition: 0.2s;
+}
+.tbl__body .tbl__row:hover {
+  background-color: hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), 0.05);
+}
+.tbl__body .tbl__row:last-child {
+  border-bottom: none;
+}
+
+.tbl__cell {
+  padding: var(--space-xs);
+}
+
+/* -------------------------------- 
+
 File#: _1_table
 Title: Table
 Descr: Data tables used to organize and display information in rows and columns
@@ -18857,8 +19017,8 @@ Usage: codyhouse.co/license
 
 -------------------------------- */
 :root {
-  --f-header-height: 50px;
-  --f-header-logo-width: 104px;
+  --f-header-height: 80px;
+  --f-header-logo-width: 150px;
 }
 @media (min-width: 64rem) {
   :root {
