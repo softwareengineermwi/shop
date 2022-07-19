@@ -2,6 +2,7 @@ import { t } from "../../pickanappApp/src/utils";
 import { g, c, openModal } from "../../shop-admin/src/js/utils";
 import accommodation from "./cards/accommodation";
 import car from "./cards/car";
+import product from "./cards/product";
 import profile from "./cards/profile"
 import imageZoom from "./components/zoom"
 
@@ -270,6 +271,40 @@ const shop = (data, category) => {
       data.forEach((item, i) => {
         console.log(item.data());
         shopArea.appendChild(accommodation(item.data(), i))
+      });
+
+      activateFilters(category, (k, v) => {
+        shopArea.innerHTML = ""
+        data.forEach(item => {
+          const itemData = item.data()
+
+          if (itemData[k] == v) {
+            shopArea.appendChild(car(itemData, i))
+          }
+        });
+      })
+      break;
+    case "Electronics":
+      data.forEach((item, i) => {
+        console.log(item.data());
+        shopArea.appendChild(product(item.data(), i))
+      });
+
+      activateFilters(category, (k, v) => {
+        shopArea.innerHTML = ""
+        data.forEach(item => {
+          const itemData = item.data()
+
+          if (itemData[k] == v) {
+            shopArea.appendChild(car(itemData, i))
+          }
+        });
+      })
+      break;
+    case "Maids":
+      data.forEach((item, i) => {
+        console.log(item.data());
+        shopArea.appendChild(profile(item.data(), i))
       });
 
       activateFilters(category, (k, v) => {

@@ -15043,6 +15043,20 @@ Usage: codyhouse.co/license
 }
 /* -------------------------------- 
 
+File#: _1_breadcrumbs
+Title: Breadcrumbs
+Descr: List of links to help the user move within website structure
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.breadcrumbs__item {
+  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* -------------------------------- 
+
 File#: _1_btn-states
 Title: Buttons states
 Descr: Multi-state button elements
