@@ -1,13 +1,17 @@
 import './style.css'
 import './custom-style/custom.css'
+import * as noui  from 'nouislider'
+import 'nouislider/dist/nouislider.css';
 // import './scripts.js'
 
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, getDoc, addDoc, query, collection, getDocs, doc, updateDoc, serverTimestamp } from 'firebase/firestore'
+import { getFirestore, getDoc, where, addDoc, query, collection, getDocs, doc, updateDoc, serverTimestamp } from 'firebase/firestore'
 import shop, { getTotal } from './shop';
 import { updateCartDsp, categorise } from './shop';
 import { closeDrawer, closeModal, g, openModal, openModal_v2 } from '../../shop-admin/src/js/utils';
+
+// import noui from "/nouislider"
 
 const firebaseConfig = {
   apiKey: "AIzaSyCoiz3Po-dElQonM_iHUKYNU4ijwlNHtPY",
@@ -27,12 +31,33 @@ const qString = window.location.search
 const urlParams = new URLSearchParams(qString)
 
 if (urlParams.has('category')) {
-  const categories = await getDoc(doc(db, `categories/${urlParams.get('category')}`))
-  const data = categories.data()
+  // const categories = await getDoc(doc(db, `categories/${urlParams.get('category')}`))
 
-  categorise(data)
-  shop(data, 0)
-  window.addEventListener("navigate", (e) => { shop(data, parseInt(e.detail, 10)) })
+  // const data = categories.data()
+
+  // categorise(data)
+  // shop(data, 0)
+  // window.addEventListener("navigate", (e) => { shop(data, parseInt(e.detail, 10)) })
+
+  const category = urlParams.get('category')
+
+  g(category).style.display = "block"
+  
+  const coll = collection(db, "products")
+  const q = query(coll, where("category", "==", category))
+
+  const querySnapshot = await getDocs(q)
+
+  const products = []
+
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data());
+    products.push(doc)
+  });
+
+  shop(products, category)
+  // const products = getDocs(query())
 } else {
   console.log("sdfghjk");
 }
@@ -42,24 +67,35 @@ g("checkout").addEventListener("click", (e) => {
   openModal_v2("modal-pPay")
 })
 
-g("btnOrder").addEventListener("click", async (e) => {
-  e.target.disabled = true
-  const phone = g("phone").value
-  if (phone !== null) {
-    const mCart = (localStorage.getItem("thee_craty_soul") ? JSON.parse(localStorage.getItem("thee_craty_soul")) : {})
+var slider = document.getElementById('slider');
 
-    await addDoc(collection(db, "orders"), {
-      items: mCart,
-      timestamp: serverTimestamp(),
-      phone: phone
-    }).then((doc) => {
-      closeModal("modal-pPay")
-      g("transferTotal").innerText = getTotal()
-      g("orderId").innerText = doc.id
-      openModal_v2("modal-order")
-    })
-  } else { alert("Phone number required!") }
-})
+noui.create(slider, {
+    start: [20, 80],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 100
+    }
+});
+
+// g("btnOrder").addEventListener("click", async (e) => {
+//   e.target.disabled = true
+//   const phone = g("phone").value
+//   if (phone !== null) {
+//     const mCart = (localStorage.getItem("thee_craty_soul") ? JSON.parse(localStorage.getItem("thee_craty_soul")) : {})
+
+//     await addDoc(collection(db, "orders"), {
+//       items: mCart,
+//       timestamp: serverTimestamp(),
+//       phone: phone
+//     }).then((doc) => {
+//       closeModal("modal-pPay")
+//       g("transferTotal").innerText = getTotal()
+//       g("orderId").innerText = doc.id
+//       openModal_v2("modal-order")
+//     })
+//   } else { alert("Phone number required!") }
+// })
 
 // const querySnapshot = await getDocs(query(collection(db, "categories")))
 

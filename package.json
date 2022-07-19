@@ -22,6 +22,7 @@
     "firebase": "^9.6.9",
     "html-webpack-plugin": "^5.5.0",
     "lodash": "^4.17.21",
+    "nouislider": "^15.6.0",
     "style-loader": "^3.3.1"
   }
 }

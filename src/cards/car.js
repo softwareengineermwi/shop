@@ -34,7 +34,7 @@ export default (car, i) => {
         </li>
       </ul>
 
-      <ul class="flex gap-sm text-center padding-bottom-xs display@lg">
+      <ul class="flex gap-sm padding-bottom-xs display@lg">
         <li>
           <span>Steering</span>
           <h5 class="margin-top-xxs text-bold">Right</h5>
@@ -63,8 +63,7 @@ export default (car, i) => {
     </div>
 
     <div class="col-2">
-      <div class="flex justify-between margin-bottom-md">
-        <span>Price</span>
+      <div class="margin-bottom-md">
         <h5 class="text-bold text-lg">$13,230</h5>
       </div>
       <div class="">

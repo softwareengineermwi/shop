@@ -237,61 +237,105 @@ const dspProduct = (data) => {
   imageZoom("myimage", "myresult");
 }
 
-const shop = (data, position) => {
+function activateFilters(category, callback) {
+  switch (category) {
+    case "Cars":
+      g("make").addEventListener("change", (e) => { callback(e.target.id, e.target.value) })
+      break;
+  }
+}
+
+const shop = (data, category) => {
   const shopArea = g('shop')
   shopArea.innerHTML = ''
 
-  const category = data.items[position]
+  switch (category) {
+    case "Cars":
+      data.forEach((item, i) => {
+        console.log(item.data());
+        shopArea.appendChild(car(item.data(), i))
+      });
 
-  switch (data.type) {
-    case "accommodation":
-      console.log(category);
-      dsp(category.items, "accommodation")
+      activateFilters(category, (k, v) => {
+        shopArea.innerHTML = ""
 
-      document.querySelectorAll(".acc").forEach(element => {
-        element.addEventListener("click", (e) => {
-          e.preventDefault()
-          dspProduct(category.items[parseInt(e.target.id, 10)])
-        })
+        data.forEach(item => {
+          const itemData = item.data()
+          if (itemData[k] == v) {
+            shopArea.appendChild(car(itemData, i))
+          }
+        });
       })
-      break
-    case "vehicle":
-      console.log(category);
-      const items = category.items
+    case "Hotels":
+      data.forEach((item, i) => {
+        console.log(item.data());
+        shopArea.appendChild(accommodation(item.data(), i))
+      });
 
-      dsp(items, "car")
+      activateFilters(category, (k, v) => {
+        shopArea.innerHTML = ""
+        data.forEach(item => {
+          const itemData = item.data()
 
-      document.querySelectorAll(".acc").forEach(element => {
-        element.addEventListener("click", (e) => {
-          e.preventDefault()
-          dspProduct(items[parseInt(e.target.id, 10)])
-        })
+          if (itemData[k] == v) {
+            shopArea.appendChild(car(itemData, i))
+          }
+        });
       })
-
-      document.querySelectorAll(".buy-now-btn").forEach(button => {
-        button.addEventListener("click", () => {
-          openModal(g("modal-pPay"))
-        })
-      })
-
-      g("d_price").style.display = "block"
-      g("buy-now-btn").style.display = "block"
-      g("btn-get-quote").style.display = "block"
-      // g("btn-hire-now").style.display = "block"
-      break
-    case "profile":
-      dsp(category.items, "profile")
-      document.querySelectorAll(".acc").forEach(element => {
-        element.addEventListener("click", (e) => {
-          e.preventDefault()
-          dspProduct(category.items[parseInt(e.target.id, 10)])
-        })
-      })
-
-      g("btn-hire-now").style.display = "block"
-      g("d_price").style.display = "block"
-      break
+      break;
   }
+
+  // const category = data.items[position]
+
+  // switch (data.type) {
+  //   case "accommodation":
+  //     console.log(category);
+  //     dsp(category.items, "accommodation")
+
+  //     document.querySelectorAll(".acc").forEach(element => {
+  //       element.addEventListener("click", (e) => {
+  //         e.preventDefault()
+  //         dspProduct(category.items[parseInt(e.target.id, 10)])
+  //       })
+  //     })
+  //     break
+  //   case "vehicle":
+  //     console.log(category);
+  //     const items = category.items
+
+  //     dsp(items, "car")
+
+  //     document.querySelectorAll(".acc").forEach(element => {
+  //       element.addEventListener("click", (e) => {
+  //         e.preventDefault()
+  //         dspProduct(items[parseInt(e.target.id, 10)])
+  //       })
+  //     })
+
+  //     document.querySelectorAll(".buy-now-btn").forEach(button => {
+  //       button.addEventListener("click", () => {
+  //         openModal(g("modal-pPay"))
+  //       })
+  //     })
+
+  //     g("d_price").style.display = "block"
+  //     g("buy-now-btn").style.display = "block"
+  //     g("btn-get-quote").style.display = "block"
+  //     // g("btn-hire-now").style.display = "block"
+  //     break
+  //   case "profile":
+  //     dsp(category.items, "profile")
+  //     document.querySelectorAll(".acc").forEach(element => {
+  //       element.addEventListener("click", (e) => {
+  //         e.preventDefault()
+  //         dspProduct(category.items[parseInt(e.target.id, 10)])
+  //       })
+  //     })
+
+  //     g("btn-hire-now").style.display = "block"
+  //     g("d_price").style.display = "block"
+  //     break
+  // }
 }
 
 g("btn-hire-now").addEventListener("click", () => {
