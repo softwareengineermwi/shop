@@ -1,5 +1,4 @@
-import { t } from "../../pickanappApp/src/utils";
-import { g, c, openModal } from "../../shop-admin/src/js/utils";
+import { t, g, c, openModal, openModal_v2 } from "../../utils";
 import accommodation from "./cards/accommodation";
 import car from "./cards/car";
 import product from "./cards/product";
@@ -210,8 +209,8 @@ function showSlides(n, imgs) {
 }
 /**************************************************/
 
-const dspProduct = (data) => {
-  console.log(data);
+const dspProduct = (product) => {
+  const data = product.data()
 
   g("modal-title").innerText = data.name;
   g("modal-subtitle").innerText = data.name;
@@ -283,12 +282,26 @@ const shop = (data, category) => {
           }
         });
       })
+
+      document.querySelectorAll(".acc").forEach(element => {
+        element.addEventListener("click", (e) => {
+          e.preventDefault()
+          dspProduct(data[parseInt(e.target.id, 10)])
+        })
+      })
       break;
     case "Electronics":
       data.forEach((item, i) => {
         console.log(item.data());
         shopArea.appendChild(product(item.data(), i))
       });
+
+      document.querySelectorAll(".acc").forEach(element => {
+        element.addEventListener("click", (e) => {
+          e.preventDefault()
+          dspProduct(data[parseInt(e.target.id, 10)])
+        })
+      })
 
       activateFilters(category, (k, v) => {
         shopArea.innerHTML = ""
@@ -375,6 +388,11 @@ const shop = (data, category) => {
 
 g("btn-hire-now").addEventListener("click", () => {
   openModal(g("modal-form"))
+})
+
+g("checkout").addEventListener("click", (e) => {
+  g("drawer-cart-id").classList.toggle("drawer--is-visible")
+  openModal_v2("modal-pPay")
 })
 
 export { updateCartDsp, categorise, getTotal }

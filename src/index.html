@@ -11,7 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
   <title>Shop</title>
 </head>
 
@@ -89,7 +88,7 @@
       <div class="col-12 grid">
         <div class="col-10 padding-y-xs">
           <nav class="breadcrumbs text-sm" aria-label="Breadcrumbs">
-            <ol class="flex flex-wrap gap-xxs">
+            <ol class="flex flex-wrap gap-xxs" id="breadcrumbs">
               <li class="breadcrumbs__item">
                 <a href="#0" class="color-inherit">Home</a>
                 <svg class="icon margin-left-xxxs color-contrast-low" aria-hidden="true" viewBox="0 0 16 16">
@@ -155,7 +154,6 @@
 
             <div>
               <div id="slider"></div>
-              <!-- <input type="range" min="50" max="8000"> -->
             </div>
           </div>
 
@@ -2398,17 +2396,19 @@
 
         <div id="Electronics" class="hide">
           <div class="margin-bottom-sm border-bottom">
-            <span>Type of accommodation</span>
+            <span>Brand</span>
+
             <div>
-              <select name="" id="" class="form-control width-100%">
-                <option value="">All</option>
-                <option value="">Hotels</option>
-                <option value="">Villa</option>
-                <option value="">Cottage</option>
-                <option value="">Bungalow</option>
+              <select name="" id="brand" class="form-control width-100%">
+                <option value="*">All</option>
+                <option value="">Apple</option>
+                <option value="">Samsung</option>
+                <option value="">Sony</option>
+                <option value="">HP</option>
               </select>
             </div>
           </div>
+
           <div class="margin-bottom-sm border-bottom">
             <span>Price range</span>
 
@@ -2416,48 +2416,69 @@
               <span class="text-md">$50</span> <span>-</span> <span>$50</span>
             </div>
 
-            <div>
-              <div id="slider"></div>
-              <!-- <input type="range" min="50" max="8000"> -->
+            <div id="slider"></div>
+          </div>
+
+          <div class="margin-bottom-sm border-bottom">
+            <span>Condition</span>
+
+            <div class="flex gap-md">
+              <label><input type="checkbox" name="veh_acc_10" value="10">New</label>
+              <label><input type="checkbox" name="veh_acc_7" value="7">Used</label>
             </div>
           </div>
 
           <div class="margin-bottom-sm border-bottom">
-            <span>Services</span>
-            <label class="block"><input type="checkbox" name="veh_acc_10" value="10">Airport shuttle</label>
+            <span>Operating System</span>
+
+            <div>
+              <select name="" id="brand" class="form-control width-100%">
+                <option value="*">All</option>
+                <option value="">Android</option>
+                <option value="">iOS</option>
+                <option value="">Linux</option>
+                <option value="">Windows</option>
+              </select>
+            </div>
           </div>
 
           <div class="margin-bottom-sm border-bottom">
-            <span>Freebies</span>
+            <span>Connectivity</span>
 
-            <label class="block"><input type="checkbox" name="veh_acc_10" value="10">Airport shuttle</label>
-            <label class="block"><input type="checkbox" name="veh_acc_7" value="7">Free breakfast</label>
-            <label class="block"><input type="checkbox" name="veh_acc_7" value="7">Free breakfast</label>
-          </div>
-
-          <div class="margin-bottom-sm border-bottom">
-            <span>Amenities</span>
-
-            <label class="block"><input type="checkbox" name="veh_acc_10" value="10">Free WiFi</label>
-            <label class="block"><input type="checkbox" name="veh_acc_7" value="7">Free breakfast</label>
+            <div>
+              <select name="" id="brand" class="form-control width-100%">
+                <option value="*">All</option>
+                <option value="">WiFi</option>
+                <option value="">WiFi+4G</option>
+                <option value="">3G</option>
+                <option value="">4G</option>
+                <option value="">5G</option>
+              </select>
+            </div>
           </div>
         </div>
-        
+
         <div id="Maids" class="hide">
           <div class="margin-bottom-sm border-bottom">
-            <span>Type of accommodation</span>
+            <span>Type</span>
+
             <div>
-              <select name="" id="" class="form-control width-100%">
-                <option value="">All</option>
-                <option value="">Hotels</option>
-                <option value="">Villa</option>
-                <option value="">Cottage</option>
-                <option value="">Bungalow</option>
+              <select id="type" class="form-control width-100%">
+                <option value="*">All</option>
+                <option value="">Live-in</option>
+                <option value="">Commuter</option>
+                <option value="">Hourly</option>
+                <option value="">Adult Care</option>
+                <option value="">Home Caretaker</option>
+                <option value="">Cook</option>
+                <option value="">Gardener</option>
+                <option value="">Driver</option>
               </select>
             </div>
           </div>
+
           <div class="margin-bottom-sm border-bottom">
-            <span>Price range</span>
+            <span>Age Range</span>
 
             <div class="flex gap-xs">
               <span class="text-md">$50</span> <span>-</span> <span>$50</span>
@@ -2470,23 +2491,22 @@
           </div>
 
           <div class="margin-bottom-sm border-bottom">
-            <span>Services</span>
-            <label class="block"><input type="checkbox" name="veh_acc_10" value="10">Airport shuttle</label>
-          </div>
+            <span>Religion</span>
 
-          <div class="margin-bottom-sm border-bottom">
-            <span>Freebies</span>
-
-            <label class="block"><input type="checkbox" name="veh_acc_10" value="10">Airport shuttle</label>
-            <label class="block"><input type="checkbox" name="veh_acc_7" value="7">Free breakfast</label>
-            <label class="block"><input type="checkbox" name="veh_acc_7" value="7">Free breakfast</label>
-          </div>
-
-          <div class="margin-bottom-sm border-bottom">
-            <span>Amenities</span>
-
-            <label class="block"><input type="checkbox" name="veh_acc_10" value="10">Free WiFi</label>
-            <label class="block"><input type="checkbox" name="veh_acc_7" value="7">Free breakfast</label>
+            <div>
+              <select id="religion" class="form-control width-100%">
+                <option value="*">All</option>
+                <option value="">Christianity</option>
+                <option value="">Animism</option>
+                <option value="">Hinduism</option>
+                <option value="">Budhism</option>
+                <option value="">Judaism</option>
+                <option value="">Islam</option>
+                <option value="">Confucianism</option>
+                <option value="">Shinto</option>
+                <option value="">Sikhism</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
@@ -2592,9 +2612,34 @@
               <div class="col-6 position-relative">
                 <div id="myresult" class="img-zoom-result position-absolute z-index-fixed-element"></div>
 
-                <h3 id="modal-subtitle" class="text-truncate text-lg margin-bottom-xs"></h3>
+                <div class="margin-bottom-xs">
+                  <h1 id="modal-subtitle">Product Name</h1>
+                </div>
+
+                <h3 class="text-truncate text-lg margin-bottom-xs"></h3>
                 <h5 id="year" class="margin-bottom-xs hide">2018</h5>
-                <p id="description" class="color-primary letter-spacing-md margin-bottom-xs"></p>
+
+                <div class="text-component text-space-y-md margin-y-md">
+                  <p id="description"></p>
+
+                  <p class="text-md"><del class="text-line-through color-contrast-medium margin-right-xxs">$49</del><ins
+                      class="text-decoration-none">$29</ins></p>
+
+                  <fieldset class="color-swatches  js-color-swatches">
+                    <legend class="color-swatches__legend text-sm color-contrast-medium margin-bottom-xs"
+                      aria-live="polite" aria-atomic="true">Color: <span
+                        class="color-swatches__color color-contrast-high js-color-swatches__color">Jet</span></legend>
+
+                    <select class="js-color-swatches__select" aria-label="Select a color">
+                      <option value="Jet" data-style="background-color: #34252F;">Jet</option>
+                      <option value="Arsenic" data-style="background-color: #3B5249;">Arsenic</option>
+                      <option value="Wintergreen" data-style="background-color: #519872;">Wintergreen</option>
+                      <option value="Laurel Green" data-style="background-color: #A4B494;">Laurel Green</option>
+
+                    </select>
+                  </fieldset>
+                </div>
+
                 <span id="d_price" class="text-truncate text-xl hide"></span>
 
                 <div class="width-xxxxl flex gap-sm margin-top-md">

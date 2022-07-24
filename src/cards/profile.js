@@ -1,4 +1,4 @@
-import { t } from '../../../pickanappApp/src/utils'
+import { t } from '../../../utils'
 
 export default (data, i) => {
   return t(`<div class="col-12 grid gap-md border-bottom margin-bottom-xs">

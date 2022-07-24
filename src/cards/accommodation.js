@@ -1,9 +1,9 @@
-import { t } from '../../../pickanappApp/src/utils'
+import { t } from '../../../utils'
 
 export default (data, i) => {
   return t(`<div class="card-v10 card-v10--featured margin-bottom-md">
-    <a class="card-v10__img-link radius-lg shadow-lg acc" href="javascript:void()"">
-      <img id="${i}" src="${data.figure}" alt="Image description">
+    <a class="card-v10__img-link radius-lg shadow-lg" href="javascript:void()"">
+      <img id="${i}" src="${data.figure}" class="acc" alt="Image description">
     </a>
 
     <div class="card-v10__content-wrapper">

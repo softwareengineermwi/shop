@@ -1,17 +1,14 @@
 import './style.css'
 import './custom-style/custom.css'
-import * as noui  from 'nouislider'
+import * as noui from 'nouislider'
 import 'nouislider/dist/nouislider.css';
-// import './scripts.js'
 
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, getDoc, where, addDoc, query, collection, getDocs, doc, updateDoc, serverTimestamp } from 'firebase/firestore'
 import shop, { getTotal } from './shop';
 import { updateCartDsp, categorise } from './shop';
-import { closeDrawer, closeModal, g, openModal, openModal_v2 } from '../../shop-admin/src/js/utils';
-
-// import noui from "/nouislider"
+import { openModal_v2, g } from '../../shop-admin/src/js/utils';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCoiz3Po-dElQonM_iHUKYNU4ijwlNHtPY",
@@ -31,18 +28,10 @@ const qString = window.location.search
 const urlParams = new URLSearchParams(qString)
 
 if (urlParams.has('category')) {
-  // const categories = await getDoc(doc(db, `categories/${urlParams.get('category')}`))
-
-  // const data = categories.data()
-
-  // categorise(data)
-  // shop(data, 0)
-  // window.addEventListener("navigate", (e) => { shop(data, parseInt(e.detail, 10)) })
-
   const category = urlParams.get('category')
 
   g(category).style.display = "block"
-  
+
   const coll = collection(db, "products")
   const q = query(coll, where("category", "==", category))
 
@@ -57,25 +46,17 @@ if (urlParams.has('category')) {
   });
 
   shop(products, category)
-  // const products = getDocs(query())
-} else {
-  console.log("sdfghjk");
-}
-
-g("checkout").addEventListener("click", (e) => {
-  g("drawer-cart-id").classList.toggle("drawer--is-visible")
-  openModal_v2("modal-pPay")
-})
+} else { console.log("sdfghjk"); }
 
 var slider = document.getElementById('slider');
 
 noui.create(slider, {
-    start: [20, 80],
-    connect: true,
-    range: {
-        'min': 0,
-        'max': 100
-    }
+  start: [20, 80],
+  connect: true,
+  range: {
+    'min': 0,
+    'max': 100
+  }
 });
 
 // g("btnOrder").addEventListener("click", async (e) => {
@@ -107,6 +88,3 @@ noui.create(slider, {
 // })
 
 // updateCartDsp("thee_craty_soul")
-
-
-
