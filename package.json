@@ -18,10 +18,12 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "@material/slider": "^14.0.0",
     "css-loader": "^6.6.0",
     "firebase": "^9.6.9",
     "html-webpack-plugin": "^5.5.0",
     "lodash": "^4.17.21",
+    "material-components-web": "^14.0.0",
     "nouislider": "^15.6.0",
     "style-loader": "^3.3.1"
   }

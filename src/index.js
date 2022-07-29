@@ -1,15 +1,19 @@
-import './style.css'
-import './custom-style/custom.css'
-import * as noui from 'nouislider'
+import './style.css';
+import './custom-style/custom.css';
+import * as noui from 'nouislider';
 import 'nouislider/dist/nouislider.css';
-import { colorSwatches } from './js/scripts'
+import { colorSwatches } from './js/scripts';
+// @use "@material/slider/styles";
 
-import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { initializeApp } from 'firebase/app'
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth"
 import { getFirestore, getDoc, where, addDoc, query, collection, getDocs, doc, updateDoc, serverTimestamp } from 'firebase/firestore'
-import shop, { getTotal } from './shop';
-import { updateCartDsp, categorise } from './shop';
-import { g } from '../../utils/index';
+import shop, { getTotal } from './shop'
+import { updateCartDsp, categorise } from './shop'
+import { g } from '../../utils/index'
+
+// import {MDCSlider} from '@material/slider';
+// const mSlider = new MDCSlider(document.querySelector('.mdc-slider'));
 
 const firebaseConfig = {
   apiKey: "AIzaSyCoiz3Po-dElQonM_iHUKYNU4ijwlNHtPY",
@@ -31,7 +35,8 @@ const urlParams = new URLSearchParams(qString)
 if (urlParams.has('category')) {
   const category = urlParams.get('category')
 
-  g(category).style.display = "block"
+  g(`${category}_filters`).style.display = "block"
+  g(`${category}_details`).style.display = "block"
 
   const coll = collection(db, "products")
   const q = query(coll, where("category", "==", category))
@@ -51,7 +56,6 @@ if (urlParams.has('category')) {
 } else { console.log("sdfghjk"); }
 
 var slider = document.getElementById('slider');
-
 noui.create(slider, {
   start: [20, 80],
   connect: true,
