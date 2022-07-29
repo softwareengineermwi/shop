@@ -2,13 +2,14 @@ import './style.css'
 import './custom-style/custom.css'
 import * as noui from 'nouislider'
 import 'nouislider/dist/nouislider.css';
+import { colorSwatches } from './js/scripts'
 
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, getDoc, where, addDoc, query, collection, getDocs, doc, updateDoc, serverTimestamp } from 'firebase/firestore'
 import shop, { getTotal } from './shop';
 import { updateCartDsp, categorise } from './shop';
-import { openModal_v2, g } from '../../shop-admin/src/js/utils';
+import { g } from '../../utils/index';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCoiz3Po-dElQonM_iHUKYNU4ijwlNHtPY",
@@ -46,6 +47,7 @@ if (urlParams.has('category')) {
   });
 
   shop(products, category)
+  colorSwatches();
 } else { console.log("sdfghjk"); }
 
 var slider = document.getElementById('slider');

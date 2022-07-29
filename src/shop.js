@@ -256,6 +256,13 @@ const shop = (data, category) => {
         shopArea.appendChild(car(item.data(), i))
       });
 
+      document.querySelectorAll(".acc").forEach(element => {
+        element.addEventListener("click", (e) => {
+          e.preventDefault()
+          dspProduct(data[parseInt(e.target.id, 10)])
+        })
+      })
+
       activateFilters(category, (k, v) => {
         shopArea.innerHTML = ""
 
@@ -266,6 +273,7 @@ const shop = (data, category) => {
           }
         });
       })
+      break;
     case "Hotels":
       data.forEach((item, i) => {
         console.log(item.data());
@@ -315,10 +323,20 @@ const shop = (data, category) => {
       })
       break;
     case "Maids":
+      g("thumbnails").style.display = "none"
+      g("specs_hint").innerText = "More about Margaret"
+
       data.forEach((item, i) => {
         console.log(item.data());
         shopArea.appendChild(profile(item.data(), i))
       });
+
+      document.querySelectorAll(".acc").forEach(element => {
+        element.addEventListener("click", (e) => {
+          e.preventDefault()
+          dspProduct(data[parseInt(e.target.id, 10)])
+        })
+      })
 
       activateFilters(category, (k, v) => {
         shopArea.innerHTML = ""

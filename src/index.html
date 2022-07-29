@@ -134,7 +134,8 @@
       <div class="section">
         <div id="Hotels" class="hide">
           <div class="margin-bottom-sm border-bottom">
-            <span>Type of accommodation</span>
+            <span>Type of stay</span>
+
             <div>
               <select name="" id="" class="form-control width-100%">
                 <option value="">All</option>
@@ -145,6 +146,7 @@
               </select>
             </div>
           </div>
+
           <div class="margin-bottom-sm border-bottom">
             <span>Price range</span>
 
@@ -153,7 +155,7 @@
             </div>
 
             <div>
-              <div id="slider"></div>
+              <div id=""></div>
             </div>
           </div>
 
@@ -175,6 +177,20 @@
 
             <label class="block"><input type="checkbox" name="veh_acc_10" value="10">Free WiFi</label>
             <label class="block"><input type="checkbox" name="veh_acc_7" value="7">Free breakfast</label>
+          </div>
+
+          <div class="margin-bottom-sm border-bottom">
+            <span>Review score</span>
+
+            <div>
+              <select name="" id="" class="form-control width-100%">
+                <option value="">All</option>
+                <option value="">Hotels</option>
+                <option value="">Villa</option>
+                <option value="">Cottage</option>
+                <option value="">Bungalow</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -2591,108 +2607,183 @@
 
         <div class="flex-grow overflow-auto">
           <div class="container max-width-lg padding-y-md">
-            <div class="grid gap-md">
-              <div class="col-6">
-                <div class="position-relative">
-                  <span id="mSlides">
-                    <div class="mySlides fade position-relative">
-                      <div
-                        class="position-absolute color-white right-0 bg-contrast-higher padding-xxs flex justify-end">
-                        <span><span id="i"></span> / <span id="t"></span></span>
-                      </div>
-                      <img id="myimage" class="width-100%"
-                        src="https://images.unsplash.com/photo-1622893288761-823ba60f17a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3V2fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60">
+            <section class="product">
+              <div class="margin-bottom-sm">
+                <nav class="breadcrumbs text-sm" aria-label="Breadcrumbs">
+                  <ol class="flex flex-wrap gap-xxs">
+                    <li class="breadcrumbs__item">
+                      <a href="#0" class="color-inherit">Shop</a>
+                      <span class="color-contrast-low margin-left-xxs" aria-hidden="true">/</span>
+                    </li>
+
+                    <li class="breadcrumbs__item">
+                      <a href="#0" class="color-inherit">Tees</a>
+                      <span class="color-contrast-low margin-left-xxs" aria-hidden="true">/</span>
+                    </li>
+
+                    <li class="breadcrumbs__item" aria-current="page">Tee Name</li>
+                  </ol>
+                </nav>
+              </div>
+
+              <div class="grid gap-md">
+                <div class="col-6@md">
+                  <figure class="image-zoom js-image-zoom ">
+                    <div class="position-absolute color-white right-0 bg-contrast-higher padding-xxs flex justify-end">
+                      <span><span id="i"></span> / <span id="t"></span></span>
                     </div>
-                  </span>
+                    <img id="myimage" class="image-zoom__preview js-image-zoom__preview"
+                      src="https://codyhouse.co/app/assets/img/product-img-1.jpg" alt="Preview image description">
+                    <figcaption class="sr-only">Image Caption</figcaption>
+                  </figure>
 
                   <div class="row" id="thumbnails"></div>
                 </div>
-              </div>
 
-              <div class="col-6 position-relative">
-                <div id="myresult" class="img-zoom-result position-absolute z-index-fixed-element"></div>
+                <div class="col-6@md position-relative">
+                  <div id="myresult" class="img-zoom-result position-absolute z-index-fixed-element"></div>
 
-                <div class="margin-bottom-xs">
-                  <h1 id="modal-subtitle">Product Name</h1>
+                  <div class="margin-bottom-xs">
+                    <h1 id="modal-subtitle">Product Name</h1>
+                  </div>
+
+                  <div class="views">
+                    <div id="car_view" class="hide">
+                      <div class="text-component text-space-y-md margin-y-md">
+                        <h5 id="year">2018</h5>
+
+                        <p id="description"></p>
+
+                        <p class="text-md">
+                          <del class="text-line-through color-contrast-medium margin-right-xxs">$49</del>
+                          <ins id="d_price" class="text-decoration-none">$29</ins>
+                        </p>
+                      </div>
+
+                      <div class="flex gap-sm flex-wrap">
+                        <button id="buy-now-btn" class="width-100% btn--lg btn btn--accent">Buy now</button>
+                        <button id="btn-get-quote" class="width-100% btn--lg btn btn--primary">Get proforma</button>
+                        <button id="btn-hire-now" class="width-100% btn--lg btn buy-now-btn btn--subtle">Hire
+                          now</button>
+                      </div>
+                    </div>
+
+                    <div id="product_view" class="">
+                      <div class="text-component text-space-y-md margin-y-md">
+                        <p id="description"></p>
+
+                        <p class="text-md"><del
+                            class="text-line-through color-contrast-medium margin-right-xxs">$49</del><ins
+                            class="text-decoration-none">$29</ins></p>
+
+                        <fieldset class="color-swatches js-color-swatches">
+                          <legend class="color-swatches__legend text-sm color-contrast-medium margin-bottom-xs"
+                            aria-live="polite" aria-atomic="true">Color: <span
+                              class="color-swatches__color color-contrast-high js-color-swatches__color">Jet</span>
+                          </legend>
+
+                          <select class="js-color-swatches__select" aria-label="Select a color">
+                            <option value="Jet" data-style="background-color: #34252F;">Jet</option>
+                            <option value="Arsenic" data-style="background-color: #3B5249;">Arsenic</option>
+                            <option value="Wintergreen" data-style="background-color: #519872;">Wintergreen</option>
+                            <option value="Laurel Green" data-style="background-color: #A4B494;">Laurel Green</option>
+                          </select>
+                        </fieldset>
+                      </div>
+
+                      <span class="text-sm color-contrast-medium margin-bottom-xs">Quantity</span>
+
+                      <div class="flex gap-sm items-center">
+                        <div class="">
+                          <input class="form-control width-xxxl" type="number" name="qtyInput" id="qtyInput" min="0"
+                            max="10" step="1" value="1">
+                        </div>
+
+                        <button class="btn btn--primary flex-grow">Add to Cart</button>
+                      </div>
+                    </div>
+
+                    <div id="maid_view" class="hide">
+                      <div class="text-component text-space-y-md margin-y-md">
+                        <h5 id="years" class="margin-bottom-sm">32 years</h5>
+
+                        <p id="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, iste
+                          fugiat.
+                          Perferendis commodi, est a aspernatur aperiam odit tempora consequuntur.</p>
+
+                        <p class="text-md">
+                          <ins id="d_price" class="text-decoration-none">$29/hour</ins>
+                        </p>
+
+                        <div class="flex gap-md padding-y-sm">
+                          <i class="material-icons md-48">star</i>
+                          <i class="material-icons md-48">star</i>
+                          <i class="material-icons md-48">star</i>
+                          <i class="material-icons md-48">star</i>
+                          <i class="material-icons md-48">star</i>
+                        </div>
+                      </div>
+
+                      <div class="flex gap-sm items-center">
+                        <button class="btn btn--primary btn--lg flex-grow">Hire Now</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <h3 class="text-truncate text-lg margin-bottom-xs"></h3>
-                <h5 id="year" class="margin-bottom-xs hide">2018</h5>
+                <div id="specs" class="col-12 bg-contrast-higher">
+                  <div class="container">
+                    <h1 id="specs_hint" class="color-contrast-low padding-y-xs">Specs</h1>
 
-                <div class="text-component text-space-y-md margin-y-md">
-                  <p id="description"></p>
+                    <div class="grid gap-md">
+                      <div class="col-6">
+                        <dl class="details-list details-list--rows">
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Model code</dt>
+                            <dd class="line-height-md text-right@md">DBA-NT31</dd>
+                          </div>
 
-                  <p class="text-md"><del class="text-line-through color-contrast-medium margin-right-xxs">$49</del><ins
-                      class="text-decoration-none">$29</ins></p>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Engine code</dt>
+                            <dd>1MR20</dd>
+                          </div>
 
-                  <fieldset class="color-swatches  js-color-swatches">
-                    <legend class="color-swatches__legend text-sm color-contrast-medium margin-bottom-xs"
-                      aria-live="polite" aria-atomic="true">Color: <span
-                        class="color-swatches__color color-contrast-high js-color-swatches__color">Jet</span></legend>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Steering</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
 
-                    <select class="js-color-swatches__select" aria-label="Select a color">
-                      <option value="Jet" data-style="background-color: #34252F;">Jet</option>
-                      <option value="Arsenic" data-style="background-color: #3B5249;">Arsenic</option>
-                      <option value="Wintergreen" data-style="background-color: #519872;">Wintergreen</option>
-                      <option value="Laurel Green" data-style="background-color: #A4B494;">Laurel Green</option>
-
-                    </select>
-                  </fieldset>
-                </div>
-
-                <span id="d_price" class="text-truncate text-xl hide"></span>
-
-                <div class="width-xxxxl flex gap-sm margin-top-md">
-                  <button id="buy-now-btn" class="width-100% btn--lg btn btn--primary hide">Buy now</button>
-                  <button id="btn-get-quote" class="width-100% btn--lg btn btn--subtle hide">Get proforma</button>
-                  <button id="btn-hire-now" class="width-100% btn--lg btn buy-now-btn btn--subtle hide">Hire
-                    now</button>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Fuel</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Seats</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Engine code</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Color</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Drive</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Doors</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <div class="col-6">
-                <dl class="details-list details-list--rows">
-                  <div class="details-list__item padding-y-md flex@md justify-between@md">
-                    <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Model code</dt>
-                    <dd class="line-height-md text-right@md">DBA-NT31</dd>
-                  </div>
-
-                  <div class="details-list__item padding-y-md flex@md justify-between@md">
-                    <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Engine code</dt>
-                    <dd>1MR20</dd>
-                  </div>
-
-                  <div class="details-list__item padding-y-md flex@md justify-between@md">
-                    <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Steering</dt>
-                    <dd class="line-height-md text-right@md">Right</dd>
-                  </div>
-                  <div class="details-list__item padding-y-md flex@md justify-between@md">
-                    <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Fuel</dt>
-                    <dd class="line-height-md text-right@md">Right</dd>
-                  </div>
-                  <div class="details-list__item padding-y-md flex@md justify-between@md">
-                    <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Seats</dt>
-                    <dd class="line-height-md text-right@md">Right</dd>
-                  </div>
-                  <div class="details-list__item padding-y-md flex@md justify-between@md">
-                    <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Engine code</dt>
-                    <dd class="line-height-md text-right@md">Right</dd>
-                  </div>
-                  <div class="details-list__item padding-y-md flex@md justify-between@md">
-                    <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Color</dt>
-                    <dd class="line-height-md text-right@md">Right</dd>
-                  </div>
-                  <div class="details-list__item padding-y-md flex@md justify-between@md">
-                    <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Drive</dt>
-                    <dd class="line-height-md text-right@md">Right</dd>
-                  </div>
-                  <div class="details-list__item padding-y-md flex@md justify-between@md">
-                    <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Doors</dt>
-                    <dd class="line-height-md text-right@md">Right</dd>
-                  </div>
-                </dl>
-              </div>
-            </div>
+            </section>
           </div>
         </div>
 
