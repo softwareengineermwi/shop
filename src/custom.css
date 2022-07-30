@@ -1,3 +1,5 @@
+@use "@material/slider/styles";
+
 .logo {
   width: 200px;
 }

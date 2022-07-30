@@ -1,9 +1,6 @@
 import './style.css';
-import './custom-style/custom.css';
-import * as noui from 'nouislider';
-import 'nouislider/dist/nouislider.css';
+import './custom.css';
 import { colorSwatches } from './js/scripts';
-// @use "@material/slider/styles";
 
 import { initializeApp } from 'firebase/app'
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth"
@@ -12,8 +9,14 @@ import shop, { getTotal } from './shop'
 import { updateCartDsp, categorise } from './shop'
 import { g } from '../../utils/index'
 
-// import {MDCSlider} from '@material/slider';
-// const mSlider = new MDCSlider(document.querySelector('.mdc-slider'));
+import {MDCSlider} from '@material/slider';
+const slider = new MDCSlider(g('maid_age_range'));
+
+slider.listen("MDCSlider:change", (e)=>{
+  console.log(slider.getValueStart());
+})
+
+// slider.initialize()
 
 const firebaseConfig = {
   apiKey: "AIzaSyCoiz3Po-dElQonM_iHUKYNU4ijwlNHtPY",
@@ -54,16 +57,6 @@ if (urlParams.has('category')) {
   shop(products, category)
   colorSwatches();
 } else { console.log("sdfghjk"); }
-
-var slider = document.getElementById('slider');
-noui.create(slider, {
-  start: [20, 80],
-  connect: true,
-  range: {
-    'min': 0,
-    'max': 100
-  }
-});
 
 // g("btnOrder").addEventListener("click", async (e) => {
 //   e.target.disabled = true
