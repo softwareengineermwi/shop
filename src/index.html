@@ -194,6 +194,102 @@
           </div>
         </div>
       </div>
+      
+      <div id="Houses_filters" class="hide">
+        <div class="margin-bottom-sm border-bottom">
+          <span>Type of stay</span>
+
+          <div>
+            <select name="" id="" class="form-control width-100%">
+              <option value="">All</option>
+              <option value="">Hotels</option>
+              <option value="">Villa</option>
+              <option value="">Cottage</option>
+              <option value="">Bungalow</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="margin-bottom-sm border-bottom">
+          <span>Price range</span>
+
+          <div class="flex gap-xs">
+            <span>$50</span> <span>-</span> <span>$50</span>
+          </div>
+
+          <div id="houses_price_range" class="mdc-slider mdc-slider--range">
+            <input class="mdc-slider__input" type="range" min="0" max="70" value="30" name="rangeStart"
+              aria-label="Continuous range slider demo">
+            <input class="mdc-slider__input" type="range" min="30" max="100" value="70" name="rangeEnd"
+              aria-label="Continuous range slider demo">
+            <div class="mdc-slider__track">
+              <div class="mdc-slider__track--inactive"></div>
+              <div class="mdc-slider__track--active">
+                <div class="mdc-slider__track--active_fill"></div>
+              </div>
+            </div>
+            <div class="mdc-slider__thumb">
+              <div class="mdc-slider__thumb-knob"></div>
+            </div>
+            <div class="mdc-slider__thumb">
+              <div class="mdc-slider__thumb-knob"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="margin-bottom-sm border-bottom">
+          <span>Distance to tarmac</span>
+
+          <span>50Km</span>
+
+          <div id="distance_to_tarmac" class="mdc-slider">
+            <input class="mdc-slider__input" type="range" min="0" max="100" value="50" name="volume" aria-label="Continuous slider demo">
+            <div class="mdc-slider__track">
+              <div class="mdc-slider__track--inactive"></div>
+              <div class="mdc-slider__track--active">
+                <div class="mdc-slider__track--active_fill"></div>
+              </div>
+            </div>
+            <div class="mdc-slider__thumb">
+              <div class="mdc-slider__thumb-knob"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="margin-bottom-sm border-bottom">
+          <span>Services</span>
+          <label class="block"><input type="checkbox" name="veh_acc_10" value="10">Airport shuttle</label>
+        </div>
+
+        <div class="margin-bottom-sm border-bottom">
+          <span>Freebies</span>
+
+          <label class="block"><input type="checkbox" name="veh_acc_10" value="10">Airport shuttle</label>
+          <label class="block"><input type="checkbox" name="veh_acc_7" value="7">Free breakfast</label>
+          <label class="block"><input type="checkbox" name="veh_acc_7" value="7">Free breakfast</label>
+        </div>
+
+        <div class="margin-bottom-sm border-bottom">
+          <span>Amenities</span>
+
+          <label class="block"><input type="checkbox" name="veh_acc_10" value="10">Free WiFi</label>
+          <label class="block"><input type="checkbox" name="veh_acc_7" value="7">Free breakfast</label>
+        </div>
+
+        <div class="margin-bottom-sm border-bottom">
+          <span>Review score</span>
+
+          <div>
+            <select name="" id="" class="form-control width-100%">
+              <option value="">All</option>
+              <option value="">Hotels</option>
+              <option value="">Villa</option>
+              <option value="">Cottage</option>
+              <option value="">Bungalow</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
       <div id="Cars_filters" class="hide">
         <div class="margin-bottom-sm border-bottom">
@@ -746,7 +842,7 @@
       </div>
 
       <div id="Electronics_filters" class="hide">
-        <div class="margin-bottom-sm border-bottom">
+        <div class="margin-bottom-sm">
           <span>Brand</span>
 
           <div class="padding-y-sm">
@@ -767,7 +863,24 @@
             <span class="text-md">$50</span> <span>-</span> <span>$50</span>
           </div>
 
-          <div id="slider"></div>
+          <div id="electronics_price_range" class="mdc-slider mdc-slider--range">
+            <input class="mdc-slider__input" type="range" min="0" max="70" value="30" name="rangeStart"
+              aria-label="Continuous range slider demo">
+            <input class="mdc-slider__input" type="range" min="30" max="100" value="70" name="rangeEnd"
+              aria-label="Continuous range slider demo">
+            <div class="mdc-slider__track">
+              <div class="mdc-slider__track--inactive"></div>
+              <div class="mdc-slider__track--active">
+                <div class="mdc-slider__track--active_fill"></div>
+              </div>
+            </div>
+            <div class="mdc-slider__thumb">
+              <div class="mdc-slider__thumb-knob"></div>
+            </div>
+            <div class="mdc-slider__thumb">
+              <div class="mdc-slider__thumb-knob"></div>
+            </div>
+          </div>
         </div>
 
         <div class="margin-bottom-sm border-bottom">
@@ -976,16 +1089,69 @@
             <section class="product">
               <div class="grid gap-md">
                 <div class="col-6@md">
-                  <figure class="image-zoom js-image-zoom ">
-                    <div class="position-absolute color-white right-0 bg-contrast-higher padding-xxs flex justify-end">
-                      <span><span id="i"></span> / <span id="t"></span></span>
-                    </div>
-                    <img id="myimage" class="image-zoom__preview js-image-zoom__preview"
-                      src="https://codyhouse.co/app/assets/img/product-img-1.jpg" alt="Preview image description">
-                    <figcaption class="sr-only">Image Caption</figcaption>
-                  </figure>
+                  <div class="">
+                    <figure class="image-zoom js-image-zoom ">
+                      <div
+                        class="position-absolute color-white right-0 bg-contrast-higher padding-xxs flex justify-end">
+                        <span><span id="i"></span> / <span id="t"></span></span>
+                      </div>
+                      <img id="myimage" class="image-zoom__preview js-image-zoom__preview"
+                        src="https://codyhouse.co/app/assets/img/product-img-1.jpg" alt="Preview image description">
+                      <figcaption class="sr-only">Image Caption</figcaption>
+                    </figure>
 
-                  <div class="row" id="thumbnails"></div>
+                    <div class="row" id="thumbnails"></div>
+                  </div>
+
+                  <div id="specs" class="bg-primary">
+                    <div class="container color-contrast-lower">
+                      <h1 id="specs_title" class="color-contrast-lower padding-y-xs">Specs</h1>
+
+                      <div class="color-contrast-lower">
+                        <dl class="details-list details-list--rows">
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Model code</dt>
+                            <dd class="line-height-md text-right@md">DBA-NT31</dd>
+                          </div>
+
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Engine code</dt>
+                            <dd>1MR20</dd>
+                          </div>
+
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Steering</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Fuel</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Seats</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Engine code</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Color</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Drive</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
+                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Doors</dt>
+                            <dd class="line-height-md text-right@md">Right</dd>
+                          </div>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="col-6@md position-relative">
@@ -997,6 +1163,9 @@
 
                   <div class="views">
                     <div id="Hotels_details" class="hide">
+                    </div>
+                    
+                    <div id="Houses_details" class="hide">
                     </div>
 
                     <div id="Cars_details" class="hide">
@@ -1019,7 +1188,8 @@
 
                     <div id="Electronics_details" class="hide">
                       <div class="text-component text-space-y-md margin-y-md">
-                        <p id="description"></p>
+                        <p id="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, iste
+                          fugiat. Perferendis commodi, est a aspernatur aperiam odit tempora consequuntur.</p>
 
                         <p class="text-md"><del
                             class="text-line-through color-contrast-medium margin-right-xxs">$49</del><ins
@@ -1040,7 +1210,7 @@
                         </fieldset>
 
                         <span class="text-sm color-contrast-medium margin-bottom-xs">Quantity</span>
-                        <div class="flex gap-sm items-center justify-between">
+                        <div class="flex flex-column gap-sm">
                           <div class="">
                             <input class="form-control width-xxxl" type="number" name="qtyInput" id="qtyInput" min="0"
                               max="10" step="1" value="1">
@@ -1090,62 +1260,7 @@
                       </div>
 
                       <div class="flex gap-sm items-center">
-                        <div>
-                          <input type="date" class="form-control">
-                        </div>
                         <button class="btn btn--primary btn--lg flex-grow">Hire Now</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div id="specs" class="col-12 bg-primary">
-                  <div class="container">
-                    <h1 id="specs_hint" class="color-contrast-low padding-y-xs">Specs</h1>
-
-                    <div class="grid gap-md">
-                      <div class="col-6">
-                        <dl class="details-list details-list--rows">
-                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
-                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Model code</dt>
-                            <dd class="line-height-md text-right@md">DBA-NT31</dd>
-                          </div>
-
-                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
-                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Engine code</dt>
-                            <dd>1MR20</dd>
-                          </div>
-
-                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
-                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Steering</dt>
-                            <dd class="line-height-md text-right@md">Right</dd>
-                          </div>
-
-                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
-                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Fuel</dt>
-                            <dd class="line-height-md text-right@md">Right</dd>
-                          </div>
-                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
-                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Seats</dt>
-                            <dd class="line-height-md text-right@md">Right</dd>
-                          </div>
-                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
-                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Engine code</dt>
-                            <dd class="line-height-md text-right@md">Right</dd>
-                          </div>
-                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
-                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Color</dt>
-                            <dd class="line-height-md text-right@md">Right</dd>
-                          </div>
-                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
-                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Drive</dt>
-                            <dd class="line-height-md text-right@md">Right</dd>
-                          </div>
-                          <div class="details-list__item padding-y-xs flex@md justify-between@md">
-                            <dt class="font-bold margin-bottom-xxs margin-bottom-0@md">Doors</dt>
-                            <dd class="line-height-md text-right@md">Right</dd>
-                          </div>
-                        </dl>
                       </div>
                     </div>
                   </div>

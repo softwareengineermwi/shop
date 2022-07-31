@@ -1,6 +1,6 @@
 import './style.css';
 import './custom.css';
-import { colorSwatches } from './js/scripts';
+import { colorSwatches, modalWindow } from './js/scripts';
 
 import { initializeApp } from 'firebase/app'
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth"
@@ -9,10 +9,13 @@ import shop, { getTotal } from './shop'
 import { updateCartDsp, categorise } from './shop'
 import { g } from '../../utils/index'
 
-import {MDCSlider} from '@material/slider';
+import { MDCSlider } from '@material/slider';
 const slider = new MDCSlider(g('maid_age_range'));
+const eSlider = new MDCSlider(g('electronics_price_range'));
+const hSlider = new MDCSlider(g('houses_price_range'));
+const dSlider = new MDCSlider(g('distance_to_tarmac'));
 
-slider.listen("MDCSlider:change", (e)=>{
+slider.listen("MDCSlider:change", (e) => {
   console.log(slider.getValueStart());
 })
 
@@ -55,8 +58,11 @@ if (urlParams.has('category')) {
   });
 
   shop(products, category)
+
+  modalWindow();
   colorSwatches();
 } else { console.log("sdfghjk"); }
+
 
 // g("btnOrder").addEventListener("click", async (e) => {
 //   e.target.disabled = true

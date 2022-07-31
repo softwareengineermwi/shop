@@ -1279,7 +1279,7 @@ export function colorSwatches() {
 }());
 // File#: _1_modal-window
 // Usage: codyhouse.co/license
-(function () {
+export function modalWindow() {
   var Modal = function (element) {
     this.element = element;
     this.triggers = document.querySelectorAll('[aria-controls="' + this.element.getAttribute('id') + '"]');
@@ -1497,7 +1497,7 @@ export function colorSwatches() {
       }
     });
   }
-}());
+};
 // File#: _1_notice
 // Usage: codyhouse.co/license
 (function() {

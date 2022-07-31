@@ -2,7 +2,9 @@ import { t, g, c, openModal, openModal_v2 } from "../../utils";
 import accommodation from "./cards/accommodation";
 import car from "./cards/car";
 import product from "./cards/product";
-import profile from "./cards/profile"
+import profile from "./cards/profile";
+import house from "./cards/house";
+
 import imageZoom from "./components/zoom"
 import { rating } from './js/scripts'
 
@@ -241,6 +243,30 @@ const shop = (data, category) => {
         })
       })
       break;
+    case "Houses":
+      data.forEach((item, i) => {
+        console.log(item.data());
+        shopArea.appendChild(house(item.data(), i))
+      });
+
+      activateFilters(category, (k, v) => {
+        shopArea.innerHTML = ""
+        data.forEach(item => {
+          const itemData = item.data()
+
+          if (itemData[k] == v) {
+            shopArea.appendChild(car(itemData, i))
+          }
+        });
+      })
+
+      document.querySelectorAll(".acc").forEach(element => {
+        element.addEventListener("click", (e) => {
+          e.preventDefault()
+          dsp(data[parseInt(e.target.id, 10)])
+        })
+      })
+      break;
     case "Electronics":
       data.forEach((item, i) => {
         console.log(item.data());
@@ -267,7 +293,7 @@ const shop = (data, category) => {
       break;
     case "Maids":
       g("thumbnails").style.display = "none"
-      g("specs_hint").innerText = "More about Margaret"
+      g("specs_title").innerText = "More about Margaret"
 
       data.forEach((item, i) => {
         console.log(item.data());
